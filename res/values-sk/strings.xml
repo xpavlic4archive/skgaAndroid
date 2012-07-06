@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SKGA handicap</string>
+    <string name="edit_message">Číslo hráča</string>
+    <string name="button_send">Pridať</string>
+    <string name="hint_text">Pridať SKGA číslo. Napr. 9811</string>
+    <string name="add_button">Pridať</string>
+    <string name="about_button">O nás</string>
+    <string name="about_text">Laurinka.com</string>
+    <string name="close_button">Zatvoriť</string>
+</resources>
