@@ -9,7 +9,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:src="@drawable/laurinka"
-                android:contentDescription="Logo"
+                android:contentDescription="@string/logo"
                 android:layout_gravity="center"/>
         <TextView
                 android:id="@+id/info_text"

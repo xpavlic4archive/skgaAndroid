@@ -6,6 +6,6 @@
     <string name="hint_text">Add SKGA number. Eg. 9811</string>
     <string name="add_button">Add</string>
     <string name="about_button">About</string>
-    <string name="about_text">Laurinka.com</string>
+    <string name="logo">Laurinka.com</string>
     <string name="close_button">Close</string>
 </resources>

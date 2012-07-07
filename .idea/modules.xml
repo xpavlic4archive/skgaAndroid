@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SkgaAndroid.iml" filepath="$PROJECT_DIR$/SkgaAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SkgaAppTest.iml" filepath="$PROJECT_DIR$/SkgaAppTest.iml" />
     </modules>
   </component>
 </project>

@@ -8,19 +8,14 @@
             android:layout_height="wrap_content"
             android:text="@+id/skgaNr"
             android:layout_weight="1"
-            android:textSize="20dp">
+            android:textSize="40dp">
     </TextView>
-    <Space android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_weight="2"
-            />
-
     <TextView
             android:id="@+id/hcp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@+id/hcp"
-            android:textSize="20dp"
+            android:textSize="40dp"
             android:gravity="right"
             android:layout_weight="1"
 
