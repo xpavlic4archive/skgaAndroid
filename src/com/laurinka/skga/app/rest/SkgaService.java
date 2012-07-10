@@ -24,15 +24,15 @@ public class SkgaService extends RestClient {
                     return;
                 NodeList handicap = document.getElementsByTagName("handicap");
                 Node item = handicap.item(0);
-                String txtHcp = item.getTextContent();
+                String txtHcp = item.getChildNodes().item(0).getNodeValue();
 
                 NodeList name = document.getElementsByTagName("name");
                 Node nameItem = name.item(0);
-                String txtName = nameItem.getTextContent();
+                String txtName = nameItem.getChildNodes().item(0).getNodeValue();
 
                 NodeList club = document.getElementsByTagName("club");
                 Node clubItem = club.item(0);
-                String txtClub = clubItem.getTextContent();
+                String txtClub = clubItem.getChildNodes().item(0).getNodeValue();
 
                 Hcp hcp = new Hcp();
                 hcp.setHcp(txtHcp);

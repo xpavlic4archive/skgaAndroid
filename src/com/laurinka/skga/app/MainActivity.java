@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAResponse;
 import com.laurinka.skga.app.rest.SkgaService;
+import com.laurinka.skga.app.storage.StorageHelper;
 
 import java.util.*;
 
@@ -33,7 +34,7 @@ public class MainActivity extends ListActivity {
 
 
         sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES, MODE_PRIVATE);
-        Set<String> numbers = sharedPreferences.getStringSet(Constants.SKGA_NUMBERS, Collections.<String>emptySet());
+        Set<String> numbers = StorageHelper.getNumbers(sharedPreferences);
         Intent intent;
         if (numbers.isEmpty()) {
             intent = new Intent(this, AddActivity.class);
@@ -63,7 +64,7 @@ public class MainActivity extends ListActivity {
     }
 
     private ArrayList<HashMap<String, String>> findData() {
-        Set<String> numbers = sharedPreferences.getStringSet(Constants.SKGA_NUMBERS, new HashSet<String>());
+        Set<String> numbers = StorageHelper.getNumbers(sharedPreferences);
 
         ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
         String[] numbersA = numbers.toArray(new String[0]);

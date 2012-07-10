@@ -1,17 +1,19 @@
 package com.laurinka.skga.app;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
 import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAResponse;
 import com.laurinka.skga.app.rest.SkgaService;
-
-import java.util.HashSet;
-import java.util.Set;
+import com.laurinka.skga.app.storage.StorageHelper;
 
 public class AddActivity extends Activity {
     private SharedPreferences sharedPreferences;
@@ -26,10 +28,8 @@ public class AddActivity extends Activity {
 
     public void saveNumber(View view) {
         final String message = findNumber();
-        Set<String> numbers = sharedPreferences.getStringSet(Constants.SKGA_NUMBERS, new HashSet<String>());
-        numbers.add(message);
-        sharedPreferences.edit().putStringSet(Constants.SKGA_NUMBERS, numbers).commit();
-
+        
+        StorageHelper.addMessage(sharedPreferences, message);
         new SkgaService().queryHcp(message, new OnSKGAResponse() {
             public void onResponse(Hcp response) {
                 Log.d(this.getClass().toString(), response.toString());
