@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">SKGA handicap</string>
     <string name="edit_message">Players number</string>
     <string name="button_send">Add</string>
@@ -8,4 +9,8 @@
     <string name="about_button">About</string>
     <string name="logo">Laurinka.com</string>
     <string name="close_button">Close</string>
+    <string name="by_skga">By players number</string>
+    <string name="by_name">By players name</string>
+    <string name="no_numbers">No numbers.</string>
+    <string name="no_names">No names.</string>
 </resources>

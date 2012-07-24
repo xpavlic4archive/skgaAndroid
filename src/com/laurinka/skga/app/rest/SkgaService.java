@@ -1,21 +1,22 @@
 package com.laurinka.skga.app.rest;
 
-import com.laurinka.skga.app.DomXmlParser;
-import com.laurinka.skga.app.rest.OnRestResponse;
-import com.laurinka.skga.app.rest.RestClient;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import com.laurinka.skga.app.DomXmlParser;
 
 /**
  * Webservice for querying SKGA handicap, name of player and club.
  */
 public class SkgaService extends RestClient {
     public SkgaService() {
-        super("http://skga-radim.rhcloud.com/rest");
-    }
+		super( "http://skga-radim.rhcloud.com/rest");
+	}
 
-    public void queryHcp(String member, final OnSKGAResponse onRestResponseponse) {
+	public void queryHcp(String member, final OnSKGAResponse onRestResponseponse) {
+		if (null == member || "".equals(member))
+			return;
         super.execute("members/" + member, new OnRestResponse() {
             @Override
             public void onResponse(String response) {

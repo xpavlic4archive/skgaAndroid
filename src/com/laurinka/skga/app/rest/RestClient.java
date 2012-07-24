@@ -1,7 +1,5 @@
 package com.laurinka.skga.app.rest;
 
-import android.os.AsyncTask;
-import com.laurinka.skga.app.rest.OnRestResponse;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -10,15 +8,17 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import android.os.AsyncTask;
+
 public class RestClient {
 
     private String server;
 
     public RestClient(String server) {
-        this.server = server;
-    }
+		 this.server = server;
+	}
 
-    public String getServer() {
+	public String getServer() {
         return server;
     }
 
@@ -114,7 +114,6 @@ public class RestClient {
                 }
             }
         }
-
     }
 
 }

@@ -13,4 +13,5 @@ public interface Constants {
     String NAME_PREFIX = PREFIX + "NAME";
     String NAME = "name";
     String CLUB_PREFIX = PREFIX + "CLUB";
+	public  static final String COM_LAURINKA_SKGA_APP_REFRESH = "com.laurinka.skga.app.REFRESH";
 }

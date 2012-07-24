@@ -5,9 +5,9 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import com.laurinka.skga.app.Constants;
-
 import android.content.SharedPreferences;
+
+import com.laurinka.skga.app.Constants;
 
 public class StorageHelper {
 

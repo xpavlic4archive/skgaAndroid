@@ -1,7 +1,15 @@
 package com.laurinka.skga.app;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import android.app.ListActivity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,12 +19,11 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
+
 import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAResponse;
 import com.laurinka.skga.app.rest.SkgaService;
 import com.laurinka.skga.app.storage.StorageHelper;
-
-import java.util.*;
 
 /**
  * Holds list view and controller for adding new number and about activity.
@@ -25,7 +32,7 @@ public class MainActivity extends ListActivity {
 
     private SharedPreferences sharedPreferences;
     private ArrayList<HashMap<String, String>> data;
-    private SimpleAdapter adapter;
+    public SimpleAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,27 +44,27 @@ public class MainActivity extends ListActivity {
         Set<String> numbers = StorageHelper.getNumbers(sharedPreferences);
         Intent intent;
         if (numbers.isEmpty()) {
-            intent = new Intent(this, AddActivity.class);
+            intent = new Intent(this, AddByNumberActivity.class);
             startActivity(intent);
         }
 
         showList();
+
     }
+ 
     public void add(View view) {
-        startActivity(new Intent(this, AddActivity.class));
+        startActivity(new Intent(this, AddByActivity.class));
     }
 
     public void about(View view) {
         startActivity(new Intent(this, AboutActivity.class));
-
     }
-
 
     private void showList() {
         data = findData();
 
         adapter = new SimpleAdapter(this, data,
-                R.layout.rowlayout, new String[]{Constants.SKGA_NR, Constants.HCP}, new int[]{R.id.skgaNr, R.id.hcp});
+                R.layout.rowlayout, new String[]{Constants.NAME, Constants.HCP}, new int[]{R.id.name, R.id.hcp});
 
         // Assign adapter to ListView
         setListAdapter(adapter);
@@ -80,11 +87,19 @@ public class MainActivity extends ListActivity {
         }
         return data;
     }
+    public class updaterBroadcastReceiver extends BroadcastReceiver {       
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			showList();
+		}
+}
 
     @Override
     protected void onResume() {
+        IntentFilter filter = new IntentFilter(Constants.COM_LAURINKA_SKGA_APP_REFRESH);
+        updaterBroadcastReceiver r = new updaterBroadcastReceiver();
+        registerReceiver(r,filter);
         super.onResume();
-        showList();
     }
 
     @Override
@@ -99,7 +114,6 @@ public class MainActivity extends ListActivity {
         // Must add the progress bar to the root of the layout
         ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
         root.addView(progressBar);
-
 
         Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);
         final String message = map.get(Constants.SKGA_NR);
@@ -122,7 +136,7 @@ public class MainActivity extends ListActivity {
     }
     public void callBack(String message, Hcp response) {
         showList();
-        Toast.makeText(this, response.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, response.getClub(), Toast.LENGTH_LONG).show();
     }
 
 }
