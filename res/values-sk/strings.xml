@@ -7,11 +7,11 @@
     <string name="hint_text">Pridať SKGA číslo. Napr. 9811</string>
     <string name="add_button">Pridať</string>
     <string name="about_button">O nás</string>
-    <string name="close_button">Zatvoriť</string>
-    <string name="logo">Laurinka.com</string>
-    <string name="by_skga">By players number</string>
-    <string name="by_name">By players name</string>
+    <string name="close_button">Späť</string>
+	<string name="logo">Laurinka.com</string>
+    <string name="by_skga">Podľa čísla hráča</string>
+    <string name="by_name">Podľa mena hráča</string>
     <string name="no_numbers">Žiadna čísla.</string>
-    <string name="no_names">No names.</string>
+    <string name="no_names">Žiadna mena.</string>
 
 </resources>
