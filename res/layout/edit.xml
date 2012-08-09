@@ -1,35 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="5dp" >
+    android:layout_height="fill_parent" >
 
     <LinearLayout
         android:id="@+id/action_bar"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
 
         <Button
-            android:id="@+id/add_button"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:onClick="close"
-            android:padding="16dp"
             android:text="@string/close_button" />
-
     </LinearLayout>
 
     <ListView
-        android:id="@id/android:list"
+        android:id="@android:id/list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/action_bar" />
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/action_bar"
+        android:choiceMode="multipleChoice" >
+    </ListView>
 
     <TextView
-        android:id="@id/android:empty"
+        android:id="@android:id/empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/action_bar"
+        android:gravity="center_horizontal"
         android:text="@string/no_names" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="delete"
+        android:text="@string/delete_button" />
 
 </RelativeLayout>

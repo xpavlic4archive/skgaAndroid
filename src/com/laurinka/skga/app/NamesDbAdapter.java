@@ -16,12 +16,9 @@
 
 package com.laurinka.skga.app;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
-import com.laurinka.skga.app.util.CSVReader;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -32,6 +29,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
+
+import com.laurinka.skga.app.util.CSVReader;
 
 /**
  * Simple names database access helper class. Defines the basic CRUD operations

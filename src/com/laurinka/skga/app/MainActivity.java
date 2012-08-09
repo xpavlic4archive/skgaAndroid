@@ -2,8 +2,8 @@ package com.laurinka.skga.app;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import android.app.ListActivity;
 import android.content.BroadcastReceiver;
@@ -41,7 +41,7 @@ public class MainActivity extends ListActivity {
 
 
         sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES, MODE_PRIVATE);
-        Set<String> numbers = StorageHelper.getNumbers(sharedPreferences);
+        List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
         Intent intent;
         if (numbers.isEmpty()) {
             intent = new Intent(this, AddByNumberActivity.class);
@@ -49,7 +49,6 @@ public class MainActivity extends ListActivity {
         }
 
         showList();
-
     }
  
     public void add(View view) {
@@ -58,6 +57,10 @@ public class MainActivity extends ListActivity {
 
     public void about(View view) {
         startActivity(new Intent(this, AboutActivity.class));
+    }
+    
+    public void edit(View view) {
+        startActivity(new Intent(this, EditActivity.class));
     }
 
     private void showList() {
@@ -71,7 +74,7 @@ public class MainActivity extends ListActivity {
     }
 
     private ArrayList<HashMap<String, String>> findData() {
-        Set<String> numbers = StorageHelper.getNumbers(sharedPreferences);
+        List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
 
         ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
         String[] numbersA = numbers.toArray(new String[0]);
@@ -87,6 +90,7 @@ public class MainActivity extends ListActivity {
         }
         return data;
     }
+    
     public class updaterBroadcastReceiver extends BroadcastReceiver {       
 		@Override
 		public void onReceive(Context context, Intent intent) {
@@ -96,6 +100,10 @@ public class MainActivity extends ListActivity {
 
     @Override
     protected void onResume() {
+    	//handle changes from edit activity
+    	showList();
+    	
+    	//handles changes from async tasks
         IntentFilter filter = new IntentFilter(Constants.COM_LAURINKA_SKGA_APP_REFRESH);
         updaterBroadcastReceiver r = new updaterBroadcastReceiver();
         registerReceiver(r,filter);

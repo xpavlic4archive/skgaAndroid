@@ -4,13 +4,20 @@
                 android:layout_height="fill_parent">
     <LinearLayout
             android:id="@+id/action_bar"
-            android:layout_height="50dp" android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" android:layout_width="fill_parent" 
             android:padding="5dip">
         <Button android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="@string/add_button"
                 android:onClick="add"
                 android:id="@+id/add_button"
+                android:layout_weight="0.5"
+                />
+        <Button android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/edit_button"
+                    android:onClick="edit"
+                android:id="@+id/edit_button"
                 android:layout_weight="0.5"
                 />
 
@@ -22,14 +29,22 @@
                 android:layout_weight="0.5"
                 />
     </LinearLayout>
+
     <ListView
-            android:id="@android:id/list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/action_bar"
-            android:layout_alignParentBottom="true"
-            >
+        android:id="@android:id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/action_bar"
+        android:padding="5dp" >
+
     </ListView>
-
-
+        <TextView
+        android:id="@android:id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/action_bar"
+        android:text="@string/no_names"
+        android:gravity="center_horizontal"
+    />
 </RelativeLayout>

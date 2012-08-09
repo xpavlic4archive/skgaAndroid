@@ -46,7 +46,7 @@ public class AddByNumberActivity extends Activity {
 						.putString(Constants.NAME_PREFIX + message,
 								response.getName()) //
 						.commit();
-				StorageHelper.addMessage(sharedPreferences, message);
+				StorageHelper.addNumber(sharedPreferences, message);
 				sendBroadcast(new Intent(Constants.COM_LAURINKA_SKGA_APP_REFRESH));
 			}
 

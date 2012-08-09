@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
@@ -78,7 +77,7 @@ public class AddByNameActivity extends ListActivity {
 						.putString(Constants.NAME_PREFIX + message,
 								response.getName()) //
 						.commit();
-				StorageHelper.addMessage(sharedPreferences, message);
+				StorageHelper.addNumber(sharedPreferences, message);
 				sendBroadcast(new Intent(Constants.COM_LAURINKA_SKGA_APP_REFRESH));
 			}
 
@@ -88,6 +87,7 @@ public class AddByNameActivity extends ListActivity {
 			}
 
 		});
+		c.close();
 		finish();
 	}
 

@@ -8,9 +8,11 @@
     <string name="add_button">Add</string>
     <string name="about_button">About</string>
     <string name="logo">Laurinka.com</string>
-    <string name="close_button">Close</string>
+    <string name="edit_button">Edit</string>
+    <string name="close_button">Back</string>
+    <string name="delete_button">Delete selected</string>
     <string name="by_skga">By players number</string>
     <string name="by_name">By players name</string>
-    <string name="no_numbers">No numbers.</string>
     <string name="no_names">No names.</string>
+    <string name="back_button">Back</string>
 </resources>

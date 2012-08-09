@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:padding="5dp"
+    tools:context=".EditActivity" >
 
     <Button
         android:id="@+id/by_skga_button"
@@ -19,5 +20,13 @@
         android:layout_below="@id/by_skga_button"
         android:onClick="byName"
         android:text="@string/by_name" />
+    
+        <Button
+        android:id="@+id/back_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/by_name_button"
+        android:onClick="back"
+        android:text="@string/back_button" />
 
 </RelativeLayout>

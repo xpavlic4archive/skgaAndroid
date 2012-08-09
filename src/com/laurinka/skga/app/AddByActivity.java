@@ -22,7 +22,7 @@ public class AddByActivity extends Activity {
 		startActivity(new Intent(this, AddByNumberActivity.class));
 		finish();
 	}
-	public void backView(View view) {
+	public void back(View view) {
 		finish();
 	}
 }
