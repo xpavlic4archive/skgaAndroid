@@ -20,12 +20,20 @@
         android:layout_below="@id/by_skga_button"
         android:onClick="byName"
         android:text="@string/by_name" />
-    
-        <Button
-        android:id="@+id/back_button"
+
+    <Button
+        android:id="@+id/search_by_name_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/by_name_button"
+        android:onClick="search"
+        android:text="@string/search_by_name" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_by_name_button"
         android:onClick="back"
         android:text="@string/back_button" />
 

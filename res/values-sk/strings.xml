@@ -14,4 +14,9 @@
     <string name="by_name">Podľa mena hráča</string>
     <string name="no_names">Žiadna mena.</string>
     <string name="back_button">Späť</string>
+    <string name="search_by_name">Hladať podľa mena hráča</string>
+    <string name="search_hint_text">Zadejte začiatok mena hráča. Napr. Marek</string>
+    <string name="button_search">Hladať</string>
+    <string name="edit_search">Meno hráča</string>
+    
 </resources>

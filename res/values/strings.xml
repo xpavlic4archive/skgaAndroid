@@ -15,4 +15,9 @@
     <string name="by_name">By players name</string>
     <string name="no_names">No names.</string>
     <string name="back_button">Back</string>
+    <string name="search_by_name">Search by name of player</string>
+    <string name="search_hint_text">Enter beginning of player\'s name. E.g. Marek</string>
+    <string name="button_search">Search</string>
+    <string name="edit_search">Player\'s name</string>
+
 </resources>

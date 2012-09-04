@@ -30,6 +30,7 @@ public class AddByNameActivity extends ListActivity {
 	public SimpleAdapter adapter;
 
 	private NamesDbAdapter mDbHelper;
+	private String pattern;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,9 @@ public class AddByNameActivity extends ListActivity {
 		setContentView(R.layout.add_by_name_list);
 		sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES,
 				MODE_PRIVATE);
+		Bundle extras = getIntent().getExtras();
+		pattern = extras.getString(Constants.PATTERN);
+		
 		mDbHelper = new NamesDbAdapter(this);
 		mDbHelper.open();
 		fillData();
@@ -105,7 +109,12 @@ public class AddByNameActivity extends ListActivity {
 
 	private void updateList() {
 		// Get all of the notes from the database and create the item list
-		Cursor c = mDbHelper.fetchAllNotes();
+		Cursor c;
+		if (null == pattern || "".equals(pattern)) {
+		 c = mDbHelper.fetchAllNotes();
+		} else {
+			c = mDbHelper.fetchNotesWhere(pattern);
+		}
 		startManagingCursor(c);
 
 		String[] from = new String[] { Constants.NAME };

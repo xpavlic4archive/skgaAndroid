@@ -22,6 +22,10 @@ public class AddByActivity extends Activity {
 		startActivity(new Intent(this, AddByNumberActivity.class));
 		finish();
 	}
+	public void search(View view) {
+		startActivity(new Intent(this, SearchActivity.class));
+		finish();
+	}
 	public void back(View view) {
 		finish();
 	}

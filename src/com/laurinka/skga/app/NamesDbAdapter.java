@@ -140,6 +140,12 @@ public class NamesDbAdapter {
 		return mDb.query(DATABASE_TABLE, new String[] { KEY_ROWID, KEY_NUMBER,
 				KEY_NAME }, null, null, null, null, null);
 	}
+	
+	public Cursor fetchNotesWhere(String pattern) {
+
+		return mDb.query(DATABASE_TABLE, new String[] { KEY_ROWID, KEY_NUMBER,
+				KEY_NAME }, "name like '%" + pattern + "%'", null, null, null, null);
+	}
 
 	public boolean isFilled() {
 		SQLiteStatement s = mDb.compileStatement("select count(*) from "
