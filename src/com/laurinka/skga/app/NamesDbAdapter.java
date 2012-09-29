@@ -108,6 +108,7 @@ public class NamesDbAdapter {
 	}
 
 	public void close() {
+		mDb.close();
 		mDbHelper.close();
 	}
 
