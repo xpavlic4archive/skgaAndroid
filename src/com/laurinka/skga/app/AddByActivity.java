@@ -13,19 +13,17 @@ public class AddByActivity extends Activity {
 		setContentView(R.layout.add_by);
 	}
 
-	public void byName(View view) {
-		startActivity(new Intent(this, AddByNameActivity.class));
-		finish();
-	}
 
 	public void byNumber(View view) {
 		startActivity(new Intent(this, AddByNumberActivity.class));
 		finish();
 	}
+
 	public void search(View view) {
 		startActivity(new Intent(this, SearchActivity.class));
 		finish();
 	}
+
 	public void back(View view) {
 		finish();
 	}

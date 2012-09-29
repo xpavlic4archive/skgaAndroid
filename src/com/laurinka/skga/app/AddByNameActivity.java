@@ -47,6 +47,7 @@ public class AddByNameActivity extends ListActivity {
 	}
 
 	public void close(View view) {
+		mDbHelper.close();
 		finish();
 	}
 
