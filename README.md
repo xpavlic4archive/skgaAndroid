@@ -1,4 +1,4 @@
 skgaAndroid
 ===========
 
-Android app for quering SKGA golf handicap - test
+Android app for quering SKGA golf handicap
