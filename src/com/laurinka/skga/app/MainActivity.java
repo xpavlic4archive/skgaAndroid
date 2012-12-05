@@ -47,8 +47,9 @@ public class MainActivity extends ListActivity {
             intent = new Intent(this, AddByNumberActivity.class);
             startActivity(intent);
         }
-
+   
         showList();
+        updateAll();
     }
  
     public void add(View view) {
@@ -147,4 +148,30 @@ public class MainActivity extends ListActivity {
         Toast.makeText(this, response.getClub(), Toast.LENGTH_LONG).show();
     }
 
+    public void updateAll() {
+    	int count = getListAdapter().getCount();
+    	for (int i= 0; i<count; i++) {
+    		updateItemOnIndex(i);
+    	}
+    }
+    private void updateItemOnIndex(int position) {
+    	   Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);
+           final String message = map.get(Constants.SKGA_NR);
+    	new SkgaService().queryHcp(message, new OnSKGAResponse() {
+            public void onResponse(Hcp response) {
+                Log.i(this.getClass().toString(), response.toString());
+                sharedPreferences.edit()             //
+                        .putString(Constants.HCP_PREFIX + message, response.getHcp())       //
+                        .putString(Constants.CLUB_PREFIX + message, response.getClub())       //
+                        .putString(Constants.NAME_PREFIX + message, response.getName())       //
+                        .commit();
+                //callBack(message, response);
+            }
+
+            public void onError(Integer errorCode, String errorMessage) {
+                Log.w(this.getClass().toString(), errorCode + " " + errorMessage);
+            }
+
+        });
+    }
 }
