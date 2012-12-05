@@ -44,7 +44,7 @@ public class MainActivity extends ListActivity {
         List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
         Intent intent;
         if (numbers.isEmpty()) {
-            intent = new Intent(this, AddByNumberActivity.class);
+            intent = new Intent(this, AddByActivity.class);
             startActivity(intent);
         }
    
