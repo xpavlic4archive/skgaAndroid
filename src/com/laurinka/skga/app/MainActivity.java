@@ -149,10 +149,14 @@ public class MainActivity extends ListActivity {
     }
 
     public void updateAll() {
+        try {
     	int count = getListAdapter().getCount();
     	for (int i= 0; i<count; i++) {
     		updateItemOnIndex(i);
     	}
+        } catch (IndexOutOfBoundsException ignored) {
+            //TODO radim
+        }
     }
     private void updateItemOnIndex(int position) {
     	   Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);

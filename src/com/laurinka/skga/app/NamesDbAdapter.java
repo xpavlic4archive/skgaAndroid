@@ -179,6 +179,7 @@ public class NamesDbAdapter {
 	}
 
 	public void importData(Activity anActivity) {
+        open();
 		InputStream inputStream = anActivity.getResources().openRawResource(
 				R.raw.numbers);
 
@@ -208,7 +209,13 @@ public class NamesDbAdapter {
 			}
 			mDb.setTransactionSuccessful();
 		} finally {
+            try {
 			mDb.endTransaction();
+            close();
+            }
+            catch (Exception ignore) {
+                      //TODO radim
+            }
 		}
 
 	}
