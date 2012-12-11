@@ -9,6 +9,11 @@ import android.content.SharedPreferences;
 
 import com.laurinka.skga.app.Constants;
 
+/**
+ * Crud operation on storage with golf numbers and handicap values.
+ * @author radimpavlicek
+ *
+ */
 public class StorageHelper {
 
 	public static List<String> getNumbers(SharedPreferences sharedPreferences) {

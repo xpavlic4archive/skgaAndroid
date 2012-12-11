@@ -103,7 +103,6 @@ public class AddByNameActivity extends ListActivity {
 					true);
 
 			new LongOperation(this, dialog).execute("");
-			// mDbHelper.importData(this);
 
 		}
 		updateList();
@@ -146,7 +145,6 @@ public class AddByNameActivity extends ListActivity {
 		@Override
 		protected void onPostExecute(String result) {
 			dialog.dismiss();
-			updateList();
 		}
 	}
 }

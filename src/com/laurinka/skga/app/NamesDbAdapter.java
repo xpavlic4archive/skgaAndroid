@@ -19,6 +19,7 @@ package com.laurinka.skga.app;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 
 import android.app.Activity;
 import android.content.ContentValues;

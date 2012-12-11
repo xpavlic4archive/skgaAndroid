@@ -39,7 +39,6 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-
         sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES, MODE_PRIVATE);
         List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
         Intent intent;
