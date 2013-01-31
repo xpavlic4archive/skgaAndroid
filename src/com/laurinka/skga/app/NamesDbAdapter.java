@@ -19,8 +19,6 @@ package com.laurinka.skga.app;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
-
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
@@ -144,7 +142,6 @@ public class NamesDbAdapter {
 	}
 	
 	public Cursor fetchNotesWhere(String pattern) {
-
 		return mDb.query(DATABASE_TABLE, new String[] { KEY_ROWID, KEY_NUMBER,
 				KEY_NAME }, "name like '%" + pattern + "%'", null, null, null, null);
 	}
