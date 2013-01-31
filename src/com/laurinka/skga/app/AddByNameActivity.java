@@ -1,5 +1,7 @@
 package com.laurinka.skga.app;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -11,13 +13,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
 
 import com.laurinka.skga.app.rest.Hcp;
-import com.laurinka.skga.app.rest.OnSKGAResponse;
+import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
+import com.laurinka.skga.app.rest.OnSKGASearchResponse;
 import com.laurinka.skga.app.rest.SkgaService;
 import com.laurinka.skga.app.storage.StorageHelper;
 
@@ -28,8 +32,7 @@ public class AddByNameActivity extends ListActivity {
 
 	private SharedPreferences sharedPreferences;
 	public SimpleAdapter adapter;
-
-	private NamesDbAdapter mDbHelper;
+	//private NamesDbAdapter mDbHelper;
 	private String pattern;
 
 	@Override
@@ -41,14 +44,10 @@ public class AddByNameActivity extends ListActivity {
 		Bundle extras = getIntent().getExtras();
 		pattern = extras.getString(Constants.PATTERN);
 		
-		mDbHelper = new NamesDbAdapter(this);
-		mDbHelper.open();
 		fillData();
-		mDbHelper.close();
 	}
 
 	public void close(View view) {
-		mDbHelper.close();
 		finish();
 	}
 
@@ -70,7 +69,7 @@ public class AddByNameActivity extends ListActivity {
 		String s = c.getString(c.getColumnIndex("number"));
 		final String message = s;
 		
-		new SkgaService().queryHcp(message, new OnSKGAResponse() {
+		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
 			public void onResponse(Hcp response) {
 				Log.i(this.getClass().toString(), response.toString());
 				sharedPreferences
@@ -98,23 +97,46 @@ public class AddByNameActivity extends ListActivity {
 	}
 
 	private void fillData() {
-		if (!mDbHelper.isFilled()) {
-			final ProgressDialog dialog = ProgressDialog.show(this, "", "",
-					true);
+		new SkgaService().searchLike(pattern, new OnSKGASearchResponse() {
+			public void onResponse(List<Hcp> response) {
+//				Log.i(this.getClass().toString(), response.toString());
+//				sharedPreferences
+//						.edit()
+//						//
+//						.putString(Constants.HCP_PREFIX + message,
+//								response.getHcp()) //
+//						.putString(Constants.CLUB_PREFIX + message,
+//								response.getClub()) //
+//						.putString(Constants.NAME_PREFIX + message,
+//								response.getName()) //
+//						.commit();
+//				StorageHelper.addNumber(sharedPreferences, message);
+//				sendBroadcast(new Intent(Constants.COM_LAURINKA_SKGA_APP_REFRESH));
+			}
 
-			new LongOperation(this, dialog).execute("");
+			public void onError(Integer errorCode, String errorMessage) {
+				Log.w(this.getClass().toString(), errorCode + " "
+						+ errorMessage);
+			}
 
-		}
+		});
+//		if (!mDbHelper.isFilled()) {
+//			final ProgressDialog dialog = ProgressDialog.show(this, "", "",
+//					true);
+//
+//			new LongOperation(this, dialog).execute("");
+//
+//		}
 		updateList();
 	}
 
 	private void updateList() {
 		// Get all of the notes from the database and create the item list
-		Cursor c;
+		Cursor c = null;
 		if (null == pattern || "".equals(pattern)) {
-		 c = mDbHelper.fetchAllNotes();
+		 //c = mDbHelper.fetchAllNotes();
 		} else {
-			c = mDbHelper.fetchNotesWhere(pattern);
+			//c = mDbHelper.fetchNotesWhere(pattern);
 		}
 		startManagingCursor(c);
 
@@ -122,9 +144,11 @@ public class AddByNameActivity extends ListActivity {
 		int[] to = new int[] { R.id.text1 };
 
 		// Now create an array adapter and set it to display using our row
-		SimpleCursorAdapter notes = new SimpleCursorAdapter(this,
-				R.layout.names_row, c, from, to);
-		setListAdapter(notes);
+		//SimpleCursorAdapter notes = new SimpleCursorAdapter(this,
+			//	R.layout.names_row, c, from, to);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				R.layout.names_row, R.id.text1, from);
+		setListAdapter(adapter);
 	}
 
 	private class LongOperation extends AsyncTask<String, Void, String> {
@@ -138,7 +162,7 @@ public class AddByNameActivity extends ListActivity {
 
 		@Override
 		protected String doInBackground(String... params) {
-			mDbHelper.importData(activity);
+			//mDbHelper.importData(activity);
 			return "Executed";
 		}
 

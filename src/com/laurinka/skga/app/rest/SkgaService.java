@@ -15,39 +15,50 @@ public class SkgaService extends RestClient {
 		//super( "http://192.168.56.1/rest/"); /* server for local test */
 	}
 
-	public void queryHcp(String member, final OnSKGAResponse onRestResponseponse) {
+	public void queryHcp(String member,
+			final OnSKGAHcpResponse onRestResponseponse) {
 		if (null == member || "".equals(member))
 			return;
-        super.execute("members/" + member, new OnRestResponse() {
-            @Override
-            public void onResponse(String response) {
-                Document document = DomXmlParser.XMLfromString(response);
-                if (null == document)
-                    return;
-                NodeList handicap = document.getElementsByTagName("handicap");
-                Node item = handicap.item(0);
-                String txtHcp = item.getChildNodes().item(0).getNodeValue();
+		super.execute("members/" + member, new OnRestResponse() {
+			@Override
+			public void onResponse(String response) {
+				Document document = DomXmlParser.XMLfromString(response);
+				if (null == document)
+					return;
+				NodeList handicap = document.getElementsByTagName("handicap");
+				Node item = handicap.item(0);
+				String txtHcp = item.getChildNodes().item(0).getNodeValue();
 
-                NodeList name = document.getElementsByTagName("name");
-                Node nameItem = name.item(0);
-                String txtName = nameItem.getChildNodes().item(0).getNodeValue();
+				NodeList name = document.getElementsByTagName("name");
+				Node nameItem = name.item(0);
+				String txtName = nameItem.getChildNodes().item(0)
+						.getNodeValue();
 
-                NodeList club = document.getElementsByTagName("club");
-                Node clubItem = club.item(0);
-                String txtClub = clubItem.getChildNodes().item(0).getNodeValue();
+				NodeList club = document.getElementsByTagName("club");
+				Node clubItem = club.item(0);
+				String txtClub = clubItem.getChildNodes().item(0)
+						.getNodeValue();
 
-                Hcp hcp = new Hcp();
-                hcp.setHcp(txtHcp);
-                hcp.setName(txtName);
-                hcp.setClub(txtClub);
+				Hcp hcp = new Hcp();
+				hcp.setHcp(txtHcp);
+				hcp.setName(txtName);
+				hcp.setClub(txtClub);
 
-                onRestResponseponse.onResponse(hcp);
-            }
+				onRestResponseponse.onResponse(hcp);
+			}
 
-            @Override
-            public void onError(Integer errorCode, String errorMessage) {
-                onRestResponseponse.onError(errorCode, errorMessage);
-            }
-        });
-    }
+			@Override
+			public void onError(Integer errorCode, String errorMessage) {
+				onRestResponseponse.onError(errorCode, errorMessage);
+			}
+		});
+	}
+
+	public void searchLike(String what,
+			final OnSKGASearchResponse onRestResponseponse) {
+		if (null == what || "".equals(what))
+			return;
+		super.execute("members/search?q=" + what,
+				new OnRestResponseImplementation(onRestResponseponse));
+	}
 }

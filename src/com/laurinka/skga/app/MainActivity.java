@@ -19,7 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import com.laurinka.skga.app.rest.Hcp;
-import com.laurinka.skga.app.rest.OnSKGAResponse;
+import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
 import com.laurinka.skga.app.rest.SkgaService;
 import com.laurinka.skga.app.storage.StorageHelper;
 
@@ -39,14 +39,14 @@ public class MainActivity extends ListActivity {
 
         sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES, MODE_PRIVATE);
         List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
-        Intent intent;
         if (numbers.isEmpty()) {
-            intent = new Intent(this, AddByActivity.class);
+            Intent intent = new Intent(this, AddByActivity.class);
             startActivity(intent);
         }
    
         showList();
         updateAll();
+        showList();
     }
  
     public void add(View view) {
@@ -89,7 +89,7 @@ public class MainActivity extends ListActivity {
         return data;
     }
     
-    public class updaterBroadcastReceiver extends BroadcastReceiver {       
+    public class UpdaterBroadcastReceiver extends BroadcastReceiver {       
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			showList();
@@ -103,7 +103,7 @@ public class MainActivity extends ListActivity {
     	
     	//handles changes from async tasks
         IntentFilter filter = new IntentFilter(Constants.COM_LAURINKA_SKGA_APP_REFRESH);
-        updaterBroadcastReceiver r = new updaterBroadcastReceiver();
+        UpdaterBroadcastReceiver r = new UpdaterBroadcastReceiver();
         registerReceiver(r,filter);
         super.onResume();
     }
@@ -123,7 +123,7 @@ public class MainActivity extends ListActivity {
 
         Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);
         final String message = map.get(Constants.SKGA_NR);
-        new SkgaService().queryHcp(message, new OnSKGAResponse() {
+        new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
             public void onResponse(Hcp response) {
                 Log.i(this.getClass().toString(), response.toString());
                 sharedPreferences.edit()             //
@@ -158,7 +158,7 @@ public class MainActivity extends ListActivity {
     private void updateItemOnIndex(int position) {
     	   Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);
            final String message = map.get(Constants.SKGA_NR);
-    	new SkgaService().queryHcp(message, new OnSKGAResponse() {
+    	new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
             public void onResponse(Hcp response) {
                 Log.i(this.getClass().toString(), response.toString());
                 sharedPreferences.edit()             //

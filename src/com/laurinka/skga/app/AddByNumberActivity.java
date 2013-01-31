@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.laurinka.skga.app.rest.Hcp;
-import com.laurinka.skga.app.rest.OnSKGAResponse;
+import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
 import com.laurinka.skga.app.rest.SkgaService;
 import com.laurinka.skga.app.storage.StorageHelper;
 
@@ -32,7 +32,7 @@ public class AddByNumberActivity extends Activity {
 	public void saveNumber(View view) {
 		final String message = findNumber();
 
-		new SkgaService().queryHcp(message, new OnSKGAResponse() {
+		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
 
 			public void onResponse(Hcp response) {
 				Log.d(this.getClass().toString(), response.toString());
