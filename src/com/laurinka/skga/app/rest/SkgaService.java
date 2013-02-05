@@ -11,7 +11,6 @@ import com.laurinka.skga.app.DomXmlParser;
  */
 public class SkgaService extends RestClient {
 
-
 	public SkgaService() {
 		super("http://skga-radim.rhcloud.com/rest");
 	}
