@@ -7,7 +7,6 @@ import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,9 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
-import android.widget.SimpleCursorAdapter;
 
 import com.laurinka.skga.app.rest.Hcp;
+import com.laurinka.skga.app.rest.NameNumber;
 import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
 import com.laurinka.skga.app.rest.OnSKGASearchResponse;
 import com.laurinka.skga.app.rest.SkgaService;
@@ -65,8 +64,8 @@ public class AddByNameActivity extends ListActivity {
 		ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
 		root.addView(progressBar);
 
-		Cursor c = (Cursor) getListAdapter().getItem(position);
-		String s = c.getString(c.getColumnIndex("number"));
+		String s = (String) getListAdapter().getItem(position);
+//		String s = c.getString(c.getColumnIndex("number"));
 		final String message = s;
 		
 		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
@@ -92,14 +91,14 @@ public class AddByNameActivity extends ListActivity {
 			}
 
 		});
-		c.close();
+//		c.close();
 		finish();
 	}
 
 	private void fillData() {
 		new SkgaService().searchLike(pattern, new OnSKGASearchResponse() {
-			public void onResponse(List<Hcp> response) {
-//				Log.i(this.getClass().toString(), response.toString());
+			public void onResponse(List<NameNumber> response) {
+				Log.i(this.getClass().toString(), response.toString());
 //				sharedPreferences
 //						.edit()
 //						//
@@ -132,13 +131,12 @@ public class AddByNameActivity extends ListActivity {
 
 	private void updateList() {
 		// Get all of the notes from the database and create the item list
-		Cursor c = null;
 		if (null == pattern || "".equals(pattern)) {
 		 //c = mDbHelper.fetchAllNotes();
 		} else {
 			//c = mDbHelper.fetchNotesWhere(pattern);
 		}
-		startManagingCursor(c);
+
 
 		String[] from = new String[] { Constants.NAME };
 		int[] to = new int[] { R.id.text1 };
