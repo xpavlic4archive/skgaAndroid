@@ -1,5 +1,7 @@
 package com.laurinka.skga.app;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
@@ -12,7 +14,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
@@ -96,9 +97,17 @@ public class AddByNameActivity extends ListActivity {
 	}
 
 	private void fillData() {
-		new SkgaService().searchLike(pattern, new OnSKGASearchResponse() {
+		SkgaService skgaService = new SkgaService();
+		skgaService.searchLike(pattern, new OnSKGASearchResponse() {
 			public void onResponse(List<NameNumber> response) {
 				Log.i(this.getClass().toString(), response.toString());
+
+
+			      ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
+			      				//				ArrayAdapter<NameNumber> adapter = new ArrayAdapter<NameNumber>(AddByNameActivity.this,
+//						R.layout.names_row, R.id.text1, response);
+				SimpleAdapter adapter = new SimpleAdapter(AddByNameActivity.this, data ,R.layout.rowlayout, new String[]{Constants.NAME, Constants.HCP}, new int[]{R.id.name, R.id.hcp});
+				setListAdapter(adapter);
 //				sharedPreferences
 //						.edit()
 //						//
@@ -142,11 +151,9 @@ public class AddByNameActivity extends ListActivity {
 		int[] to = new int[] { R.id.text1 };
 
 		// Now create an array adapter and set it to display using our row
-		//SimpleCursorAdapter notes = new SimpleCursorAdapter(this,
-			//	R.layout.names_row, c, from, to);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				R.layout.names_row, R.id.text1, from);
-		setListAdapter(adapter);
+//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+//				R.layout.names_row, R.id.text1, from);
+//		setListAdapter(adapter);
 	}
 
 	private class LongOperation extends AsyncTask<String, Void, String> {

@@ -25,10 +25,14 @@ public final class OnRestResponseImplementation implements OnRestResponse {
 		List<NameNumber> l = new LinkedList<NameNumber>();
 		NodeList handicap = document.getElementsByTagName("nameNumberXml");
 		for (int i = 0; i < handicap.getLength(); i++) {
+			try {
 			Node item = handicap.item(i);
 			String name = item.getChildNodes().item(1).getFirstChild().getNodeValue();
 			String nr = item.getChildNodes().item(3).getFirstChild().getNodeValue();
 			l.add(new NameNumber(name, nr));
+			} catch (Exception e) {
+				//todo
+			}
 		}
 
 		onRestResponseponse.onResponse(l);
