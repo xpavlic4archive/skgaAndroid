@@ -1,7 +1,5 @@
 package com.laurinka.skga.app;
 
-import com.laurinka.skga.app.util.ResourceHelper;
-
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.text.Html;
 import android.text.util.Linkify;
 import android.view.View;
 import android.widget.TextView;
+
+import com.laurinka.skga.app.util.ResourceHelper;
 
 /**
  * Show about dialog with contact, webpage and legal info.
