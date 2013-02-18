@@ -3,6 +3,7 @@ package com.laurinka.skga.app;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -32,7 +33,7 @@ public class AddByNameActivity extends ListActivity {
 
 	private SharedPreferences sharedPreferences;
 	public SimpleAdapter adapter;
-	//private NamesDbAdapter mDbHelper;
+	// private NamesDbAdapter mDbHelper;
 	private String pattern;
 
 	@Override
@@ -43,7 +44,7 @@ public class AddByNameActivity extends ListActivity {
 				MODE_PRIVATE);
 		Bundle extras = getIntent().getExtras();
 		pattern = extras.getString(Constants.PATTERN);
-		
+
 		fillData();
 	}
 
@@ -65,10 +66,9 @@ public class AddByNameActivity extends ListActivity {
 		ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
 		root.addView(progressBar);
 
-		String s = (String) getListAdapter().getItem(position);
-//		String s = c.getString(c.getColumnIndex("number"));
-		final String message = s;
-		
+		@SuppressWarnings("unchecked")
+		HashMap<String, String> s = (HashMap<String, String>) getListAdapter().getItem(position);
+		final String message = s.get(Constants.HCP);
 		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
 			public void onResponse(Hcp response) {
 				Log.i(this.getClass().toString(), response.toString());
@@ -83,7 +83,8 @@ public class AddByNameActivity extends ListActivity {
 								response.getName()) //
 						.commit();
 				StorageHelper.addNumber(sharedPreferences, message);
-				sendBroadcast(new Intent(Constants.COM_LAURINKA_SKGA_APP_REFRESH));
+				sendBroadcast(new Intent(
+						Constants.COM_LAURINKA_SKGA_APP_REFRESH));
 			}
 
 			public void onError(Integer errorCode, String errorMessage) {
@@ -92,7 +93,7 @@ public class AddByNameActivity extends ListActivity {
 			}
 
 		});
-//		c.close();
+		// c.close();
 		finish();
 	}
 
@@ -102,24 +103,36 @@ public class AddByNameActivity extends ListActivity {
 			public void onResponse(List<NameNumber> response) {
 				Log.i(this.getClass().toString(), response.toString());
 
+				List<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
 
-			      ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
-			      				//				ArrayAdapter<NameNumber> adapter = new ArrayAdapter<NameNumber>(AddByNameActivity.this,
-//						R.layout.names_row, R.id.text1, response);
-				SimpleAdapter adapter = new SimpleAdapter(AddByNameActivity.this, data ,R.layout.rowlayout, new String[]{Constants.NAME, Constants.HCP}, new int[]{R.id.name, R.id.hcp});
+				for (NameNumber o : response) {
+					HashMap<String, String> map = new HashMap<String, String>();
+					map.put(Constants.NAME, o.getName());
+					map.put(Constants.HCP, o.getNumber());
+					data.add(map);
+				}
+
+				// ArrayAdapter<NameNumber> adapter = new
+				// ArrayAdapter<NameNumber>(AddByNameActivity.this,
+				// R.layout.names_row, R.id.text1, response);
+				SimpleAdapter adapter = new SimpleAdapter(
+						AddByNameActivity.this, data, R.layout.rowlayout,
+						new String[] { Constants.NAME , Constants.HCP},
+						new int[] { R.id.name , R.id.hcp});
 				setListAdapter(adapter);
-//				sharedPreferences
-//						.edit()
-//						//
-//						.putString(Constants.HCP_PREFIX + message,
-//								response.getHcp()) //
-//						.putString(Constants.CLUB_PREFIX + message,
-//								response.getClub()) //
-//						.putString(Constants.NAME_PREFIX + message,
-//								response.getName()) //
-//						.commit();
-//				StorageHelper.addNumber(sharedPreferences, message);
-//				sendBroadcast(new Intent(Constants.COM_LAURINKA_SKGA_APP_REFRESH));
+				// sharedPreferences
+				// .edit()
+				// //
+				// .putString(Constants.HCP_PREFIX + message,
+				// response.getHcp()) //
+				// .putString(Constants.CLUB_PREFIX + message,
+				// response.getClub()) //
+				// .putString(Constants.NAME_PREFIX + message,
+				// response.getName()) //
+				// .commit();
+				// StorageHelper.addNumber(sharedPreferences, message);
+				// sendBroadcast(new
+				// Intent(Constants.COM_LAURINKA_SKGA_APP_REFRESH));
 			}
 
 			public void onError(Integer errorCode, String errorMessage) {
@@ -128,32 +141,31 @@ public class AddByNameActivity extends ListActivity {
 			}
 
 		});
-//		if (!mDbHelper.isFilled()) {
-//			final ProgressDialog dialog = ProgressDialog.show(this, "", "",
-//					true);
-//
-//			new LongOperation(this, dialog).execute("");
-//
-//		}
+		// if (!mDbHelper.isFilled()) {
+		// final ProgressDialog dialog = ProgressDialog.show(this, "", "",
+		// true);
+		//
+		// new LongOperation(this, dialog).execute("");
+		//
+		// }
 		updateList();
 	}
 
 	private void updateList() {
 		// Get all of the notes from the database and create the item list
 		if (null == pattern || "".equals(pattern)) {
-		 //c = mDbHelper.fetchAllNotes();
+			// c = mDbHelper.fetchAllNotes();
 		} else {
-			//c = mDbHelper.fetchNotesWhere(pattern);
+			// c = mDbHelper.fetchNotesWhere(pattern);
 		}
-
 
 		String[] from = new String[] { Constants.NAME };
 		int[] to = new int[] { R.id.text1 };
 
 		// Now create an array adapter and set it to display using our row
-//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//				R.layout.names_row, R.id.text1, from);
-//		setListAdapter(adapter);
+		// ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+		// R.layout.names_row, R.id.text1, from);
+		// setListAdapter(adapter);
 	}
 
 	private class LongOperation extends AsyncTask<String, Void, String> {
@@ -167,7 +179,7 @@ public class AddByNameActivity extends ListActivity {
 
 		@Override
 		protected String doInBackground(String... params) {
-			//mDbHelper.importData(activity);
+			// mDbHelper.importData(activity);
 			return "Executed";
 		}
 
