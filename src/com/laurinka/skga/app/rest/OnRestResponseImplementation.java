@@ -27,11 +27,11 @@ public final class OnRestResponseImplementation implements OnRestResponse {
 		for (int i = 0; i < handicap.getLength(); i++) {
 			try {
 			Node item = handicap.item(i);
-			String name = item.getChildNodes().item(1).getFirstChild().getNodeValue();
-			String nr = item.getChildNodes().item(3).getFirstChild().getNodeValue();
+			String name = item.getChildNodes().item(0).getFirstChild().getNodeValue();
+			String nr = item.getChildNodes().item(1).getFirstChild().getNodeValue();
 			l.add(new NameNumber(name, nr));
 			} catch (Exception e) {
-				//todo
+				e.printStackTrace();
 			}
 		}
 

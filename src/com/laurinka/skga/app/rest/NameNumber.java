@@ -5,7 +5,6 @@ public class NameNumber {
 	String name;
 	String number;
 	public NameNumber(String aName, String aNumber) {
-		// TODO Auto-generated constructor stub
 		this.name = aName;
 		this.number = aNumber;
 	}
@@ -15,5 +14,10 @@ public class NameNumber {
 	public String getNumber() {
 		return number;
 	}
+	@Override
+	public String toString() {
+		return "NameNumber [name=" + name + ", number=" + number + "]";
+	}
 
+	
 }
