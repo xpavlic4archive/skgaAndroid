@@ -90,6 +90,7 @@ public class AddByNameActivity extends ListActivity {
 			}
 
 		});
+		//go to the main screen clearing off the stack of already resumed activities
 		Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);
