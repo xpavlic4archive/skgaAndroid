@@ -22,7 +22,7 @@
     <ListView
         android:id="@id/android:list"
         android:layout_below="@id/action_bar"
-        style="@style/AddByNameListView" />
+        style="@style/AddByNameList" />
 
     <TextView
         android:id="@id/android:empty"
