@@ -19,5 +19,8 @@
     <string name="search_hint_text">Enter beginning of player\'s name. E.g. Marek</string>
     <string name="button_search">Search</string>
     <string name="edit_search">Player\'s name</string>
+    <string name="records_button">Records</string>
+    <string name="exit_button">Exit</string>
+    <string name="back_to_menu_button">Back to Menu</string>
 
 </resources>

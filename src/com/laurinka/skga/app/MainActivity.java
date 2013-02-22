@@ -177,4 +177,8 @@ public class MainActivity extends ListActivity {
 
         });
     }
+    
+    public void close(View view) {
+        MainActivity.this.finish();
+    }
 }

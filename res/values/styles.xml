@@ -11,4 +11,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">5sp</item>
     </style>
+    <style name="IntroLogoApp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="IntroButtons">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:width">180dp</item>
+    </style>
 </resources>
