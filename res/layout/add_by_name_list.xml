@@ -21,9 +21,8 @@
 
     <ListView
         android:id="@id/android:list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/action_bar" />
+        android:layout_below="@id/action_bar"
+        style="@style/AddByNameListView" />
 
     <TextView
         android:id="@id/android:empty"
