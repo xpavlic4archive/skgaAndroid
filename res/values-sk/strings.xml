@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">SKGA handicap</string>
     <string name="edit_message">Číslo hráča</string>
     <string name="button_send">Pridať</string>
@@ -9,7 +10,7 @@
     <string name="edit_button">Zmeniť</string>
     <string name="close_button">Späť</string>
     <string name="delete_button">Zmazať označené</string>
-	<string name="logo">Laurinka.com</string>
+    <string name="logo">Laurinka.com</string>
     <string name="by_skga">Podľa čísla hráča</string>
     <string name="by_name">Podľa mena hráča</string>
     <string name="no_names">Žiadna mena.</string>
@@ -18,5 +19,14 @@
     <string name="search_hint_text">Zadejte začiatok mena hráča. Napr. Marek</string>
     <string name="button_search">Hladať</string>
     <string name="edit_search">Meno hráča</string>
-    
+    <string name="records_button">Zoznamy</string>
+    <string name="exit_button">Koniec</string>
+    <string name="back_to_menu_button">Zpet do menu</string>
+    <string name="title_myRecords">Moje zoznamy</string>
+    <string name="title_editMyRecords">Menit moje zoznamy</string>
+    <string name="title_addRecord">Pridať záznam</string>
+    <string name="backRecords_button">Zpet na moje zoznamy</string>
+    <string name="choose_name">Zvol meno</string>
+    <string name="back_to_search_button">Zpet na hladaj</string>
+
 </resources>
