@@ -47,8 +47,7 @@
 	            android:layout_gravity="right"
 	            android:onClick="startSearch"/>
 	    
-	    
-	  </LinearLayout>
+	</LinearLayout>
 	  
 	<ImageView 
         android:id="@+id/title_bar_bottom"
@@ -59,10 +58,7 @@
     
     <LinearLayout
             android:id="@+id/action_bar"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent" 
-            android:layout_alignParentBottom="true"
-            android:padding="5dip">
+            style="@style/action_bar">
 	    
    		 <Button
 	            android:id="@+id/close"

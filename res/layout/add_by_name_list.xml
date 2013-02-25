@@ -1,34 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="5dp" >
+    android:layout_height="fill_parent">
+    
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/choose_name"
+        style="@style/Title"
+    />
+    
+    <ImageView 
+        android:id="@+id/title_bar_top"
+		style="@style/TitleBar"
+		android:layout_below="@+id/title"
+		android:contentDescription="bar top"
+		/>
 
-    <LinearLayout
-        android:id="@+id/action_bar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/add_button"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:onClick="close"
-            android:padding="16dp"
-            android:text="@string/close_button" />
-
-    </LinearLayout>
-
-    <ListView
+	<ListView
         android:id="@id/android:list"
-        android:layout_below="@id/action_bar"
+        android:layout_below="@id/title_bar_top"
+        android:layout_above="@+id/title_bar_bottom"
         style="@style/AddByNameList" />
 
     <TextView
         android:id="@id/android:empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/action_bar"
+        android:layout_below="@id/title_bar_top"
+        android:layout_above="@+id/title_bar_bottom"
+        style="@style/no_names"
         android:text="@string/no_names" />
+    
+    <ImageView 
+        android:id="@+id/title_bar_bottom"
+		style="@style/TitleBar"
+		android:layout_above="@+id/action_bar"
+		android:contentDescription="bar bottom"
+	/>
+    
+    <LinearLayout
+            android:id="@+id/action_bar"
+            style="@style/action_bar">
+
+        <Button
+            android:id="@+id/add_button"
+            android:onClick="close"
+            android:layout_width="0dp"
+            style="@style/Buttons.ActionBar"
+            android:layout_weight="1"
+            android:text="@string/back_to_search_button" />
+
+    </LinearLayout>
 
 </RelativeLayout>

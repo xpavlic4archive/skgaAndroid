@@ -14,7 +14,6 @@
                 android:text="@string/records_button"
                 android:onClick="view"
                 android:id="@+id/records_button"
-                
                 android:layout_below="@id/logo_app"
                 />
 
@@ -30,5 +29,6 @@
                 android:onClick="close"
                 android:id="@+id/exit_button"
                 android:layout_below="@id/about_button"
-                />  
+                />
+        
 </RelativeLayout>

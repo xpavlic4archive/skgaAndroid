@@ -42,10 +42,7 @@
         
     <LinearLayout
             android:id="@+id/action_bar"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent" 
-            android:layout_alignParentBottom="true"
-            android:padding="5dip">
+            style="@style/action_bar">
     
 	    <Button
 	        android:id="@+id/delete_button"
