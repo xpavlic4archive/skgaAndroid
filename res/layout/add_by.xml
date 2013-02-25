@@ -1,31 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="5dp"
     tools:context=".EditActivity" >
-
-    <Button
-        android:id="@+id/by_skga_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="byNumber"
-        android:text="@string/by_skga" />
-
-    <Button
-        android:id="@+id/search_by_name_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/by_skga_button"
-        android:onClick="search"
-        android:text="@string/search_by_name" />
+    
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/title_addRecord"
+        style="@style/Title"
+    />
+    
+    <ImageView 
+        android:id="@+id/title_bar_top"
+		style="@style/TitleBar"
+		android:layout_below="@+id/title"
+		android:contentDescription="bar top"
+		/>
+    
+    <RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/title_bar_top"
+        android:layout_marginTop="5dp">
+    
+	    <Button
+	        android:id="@+id/by_skga_button"
+	        
+	        android:onClick="byNumber"
+	        style="@style/Buttons.AddBy"
+	        android:text="@string/by_skga" />
+	
+	    <Button
+	        android:id="@+id/search_by_name_button"
+	        android:layout_below="@id/by_skga_button"
+	        android:onClick="search"
+	        style="@style/Buttons.AddBy"
+	        android:text="@string/search_by_name" />
+	    
+    </RelativeLayout>
+    
+    <ImageView 
+        android:id="@+id/title_bar_bottom"
+		style="@style/TitleBar"
+		android:layout_above="@+id/action_bar"
+		android:contentDescription="bar bottom"
+	/>
+        
+    <LinearLayout
+            android:id="@+id/action_bar"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent" 
+            android:layout_alignParentBottom="true"
+            android:padding="5dip">
 
     <Button
         android:id="@+id/back_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/search_by_name_button"
         android:onClick="back"
-        android:text="@string/back_button" />
+        style="@style/Buttons.ActionBar"
+        android:layout_weight="1"
+        android:text="@string/backRecords_button" />
+    
+    </LinearLayout>
 
 </RelativeLayout>

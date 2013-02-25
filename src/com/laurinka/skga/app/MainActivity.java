@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import android.app.ListActivity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -19,7 +18,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
-
 import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAResponse;
 import com.laurinka.skga.app.rest.SkgaService;
@@ -34,7 +32,7 @@ public class MainActivity extends ListActivity {
     private ArrayList<HashMap<String, String>> data;
     public SimpleAdapter adapter;
 
-    @Override
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);

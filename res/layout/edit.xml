@@ -2,43 +2,61 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
-
-    <LinearLayout
-        android:id="@+id/action_bar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dip" >
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="close"
-            android:text="@string/close_button" />
-    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/title_editMyRecords"
+        style="@style/Title"
+    />
+    
+    <ImageView 
+        android:id="@+id/title_bar_top"
+		style="@style/TitleBar"
+		android:layout_below="@+id/title"
+		android:contentDescription="bar top"
+		/>
 
     <ListView
         android:id="@android:id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/action_bar"
-        android:choiceMode="multipleChoice" >
+        android:layout_below="@id/title_bar_top"
+        android:layout_above="@+id/title_bar_bottom"
+        android:choiceMode="multipleChoice"
+        style="@style/MainList" >
     </ListView>
 
     <TextView
         android:id="@android:id/empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/action_bar"
+        android:layout_below="@id/title_bar_top"
+        android:layout_above="@+id/title_bar_bottom"
         android:gravity="center_horizontal"
         android:text="@string/no_names" />
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:onClick="delete"
-        android:text="@string/delete_button" />
-
+	<ImageView 
+        android:id="@+id/title_bar_bottom"
+		style="@style/TitleBar"
+		android:layout_above="@+id/action_bar"
+		android:contentDescription="bar bottom"
+	/>
+        
+    <LinearLayout
+            android:id="@+id/action_bar"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent" 
+            android:layout_alignParentBottom="true"
+            android:padding="5dip">
+    
+	    <Button
+	        android:id="@+id/delete_button"
+	        android:onClick="delete"
+	        android:text="@string/delete_button"
+	        style="@style/Buttons.ActionBar.Main" />
+	    
+	    <Button
+	        android:onClick="close"
+	        android:text="@string/close_button"
+	        style="@style/Buttons.ActionBar.Main" />
+	    
+	</LinearLayout>
 </RelativeLayout>

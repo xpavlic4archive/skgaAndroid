@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+     <color name="colorRed">#ff0000</color> <!-- for testing purpose -->
+     <color name="colorWhite">#ffffff</color>
+     <color name="colorGray">#c0c0c0</color>
+     <color name="colorGrayDark">#888888</color>
+     
+     <style name="Buttons">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+     </style>
+     
+	 <style name="Buttons.Intro">
+        <item name="android:width">180dp</item>
+     </style>
+     <style name="Buttons.ActionBar">
+         <item name="android:textSize">14sp</item>
+         <item name="android:minHeight">45sp</item>
+     </style>
+     <style name="Buttons.AddBy">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        
+     </style>
+     <style name="Buttons.ActionBar.Main">
+        <item name="android:layout_weight">0.5</item>
+     </style>
+     <style name="Title">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingBottom">5dp</item>
+     </style>
+     
      <style name="AddByNameList">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -14,10 +52,41 @@
     <style name="IntroLogoApp">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5sp</item>
+        <item name="android:layout_marginBottom">5sp</item>
     </style>
-    <style name="IntroButtons">
+
+    <style name="MainList">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:width">180dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:paddingTop">3dp</item>
     </style>
+    <style name="TitleBar">
+        <item name="android:scaleType">center</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:src">@drawable/line</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+    <style name="RowLayout">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+    </style>
+    <style name="hint">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:textStyle">italic</item>
+		<item name="android:textColor">@color/colorGrayDark</item>
+    </style>
+
 </resources>

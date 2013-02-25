@@ -11,7 +11,7 @@
     <string name="edit_button">Edit</string>
     <string name="close_button">Back</string>
     <string name="delete_button">Delete selected</string>
-    <string name="by_skga">By players number</string>
+    <string name="by_skga">Search by players number</string>
     <string name="by_name">By players name</string>
     <string name="no_names">No names.</string>
     <string name="back_button">Back</string>
@@ -22,5 +22,9 @@
     <string name="records_button">Records</string>
     <string name="exit_button">Exit</string>
     <string name="back_to_menu_button">Back to Menu</string>
+    <string name="title_myRecords">My records</string>
+    <string name="title_editMyRecords">Edit my records</string>
+    <string name="title_addRecord">Add a record</string>
+    <string name="backRecords_button">Back to my records</string>
 
 </resources>

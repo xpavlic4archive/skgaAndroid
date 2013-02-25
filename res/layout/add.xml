@@ -1,35 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:padding="5dp" >
+    android:layout_height="fill_parent" >
+    
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/by_skga"
+        style="@style/Title"
+    />
+    
+    <ImageView 
+        android:id="@+id/title_bar_top"
+		style="@style/TitleBar"
+		android:layout_below="@+id/title"
+		android:contentDescription="bar top"
+		/>
 
     <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/hint"
+			style="@style/hint"
+            android:layout_below="@+id/title_bar_top"
             android:text="@string/hint_text"
-            
             />
-    <EditText android:id="@+id/edit_message"
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/hint"
+        android:layout_above="@+id/title_bar_bottom">
+        
+        <EditText android:id="@+id/edit_message"
               android:layout_height="wrap_content"
               android:hint="@string/edit_message"
-              android:layout_width="fill_parent"
+              android:layout_width="0dp"
+              android:layout_weight="1"
               android:inputType="number"
             />
-    <Button
+   		<Button
             android:id="@+id/sendMessage"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="right"
             android:text="@string/button_send"
             android:onClick="saveNumber"/>
-    <Button
-            android:id="@+id/close"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/close_button"
-            android:onClick="close"/>
+        
+    </LinearLayout>
     
-</LinearLayout>
+    <ImageView 
+        android:id="@+id/title_bar_bottom"
+		style="@style/TitleBar"
+		android:layout_above="@+id/action_bar"
+		android:contentDescription="bar bottom"
+	/>
+    
+    <LinearLayout
+            android:id="@+id/action_bar"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent" 
+            android:layout_alignParentBottom="true"
+            android:padding="5dip">
+   		
+   		 <Button
+            android:id="@+id/close"
+            android:layout_width="0dp"
+            android:text="@string/backRecords_button"
+            style="@style/Buttons.ActionBar"
+            android:layout_weight="1"
+            android:onClick="close"/>
+   		 
+   	</LinearLayout>
+    
+</RelativeLayout>
 
 
