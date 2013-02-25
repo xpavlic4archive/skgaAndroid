@@ -21,16 +21,14 @@
         android:layout_below="@id/title_bar_top"
         android:layout_above="@+id/title_bar_bottom"
         android:choiceMode="multipleChoice"
-        style="@style/MainList" >
+        style="@style/MainList.Edit" >
     </ListView>
 
     <TextView
         android:id="@android:id/empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@id/title_bar_top"
         android:layout_above="@+id/title_bar_bottom"
-        android:gravity="center_horizontal"
+		style="@style/no_names"
         android:text="@string/no_names" />
 
 	<ImageView 
