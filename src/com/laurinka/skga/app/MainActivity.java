@@ -121,7 +121,8 @@ public class MainActivity extends ListActivity {
         ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
         root.addView(progressBar);
 
-        Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);
+        @SuppressWarnings("unchecked")
+		Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);
         final String message = map.get(Constants.SKGA_NR);
         new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
             public void onResponse(Hcp response) {
@@ -156,7 +157,8 @@ public class MainActivity extends ListActivity {
         }
     }
     private void updateItemOnIndex(int position) {
-    	   Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);
+    	   @SuppressWarnings("unchecked")
+		Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);
            final String message = map.get(Constants.SKGA_NR);
     	new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
             public void onResponse(Hcp response) {
