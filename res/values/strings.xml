@@ -27,4 +27,5 @@
     <string name="choose_name">Choose players name</string>
     <string name="back_to_search_button">Back to Search</string>
     <string name="hr">Horizontal rule</string>
+     <string name="searching">Searching</string>
 </resources>
