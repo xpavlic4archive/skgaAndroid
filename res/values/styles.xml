@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     
-     <color name="colorRed">#ff0000</color> <!-- for testing purpose -->
-     <color name="colorWhite">#ffffff</color>
      <color name="colorGray">#c0c0c0</color>
      <color name="colorGrayDark">#888888</color>
      
@@ -42,6 +40,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">5sp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
     </style>
     <style name="AddByNameText1">
         <item name="android:textSize">17sp</item>
@@ -59,12 +59,9 @@
     <style name="MainList">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
         <item name="android:paddingTop">3dp</item>
-    </style>
-    <style name="MainList.Edit">
-        <item name="android:textSize">10sp</item>
     </style>
     <style name="TitleBar">
         <item name="android:scaleType">center</item>
