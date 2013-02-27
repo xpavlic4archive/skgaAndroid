@@ -40,8 +40,8 @@ public class EditActivity extends ListActivity {
 		findData();
 		/** Defining the ArrayAdapter to set items to ListView */
 		adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_multiple_choice, data);
-				// Assign a layout for styling it, this seems to be a generic layout #davidm
+				R.layout.simple_list_item_multiple_choice, data);
+				// Assigned a custom layout located in layout #davidm
 
 		// Assign adapter to ListView
 		setListAdapter(adapter);

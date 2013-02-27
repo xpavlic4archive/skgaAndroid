@@ -28,5 +28,5 @@
     <string name="backRecords_button">Zpet na moje zoznamy</string>
     <string name="choose_name">Zvol meno</string>
     <string name="back_to_search_button">Zpet na hladaj</string>
-
+	<string name="hr">Horizontal rule</string>
 </resources>

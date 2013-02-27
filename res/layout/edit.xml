@@ -13,7 +13,7 @@
         android:id="@+id/title_bar_top"
 		style="@style/TitleBar"
 		android:layout_below="@+id/title"
-		android:contentDescription="bar top"
+		android:contentDescription="@string/hr"
 		/>
 
     <ListView
@@ -21,7 +21,7 @@
         android:layout_below="@id/title_bar_top"
         android:layout_above="@+id/title_bar_bottom"
         android:choiceMode="multipleChoice"
-        style="@style/MainList.Edit" >
+        style="@style/MainList" >
     </ListView>
 
     <TextView
@@ -35,7 +35,7 @@
         android:id="@+id/title_bar_bottom"
 		style="@style/TitleBar"
 		android:layout_above="@+id/action_bar"
-		android:contentDescription="bar bottom"
+		android:contentDescription="@string/hr"
 	/>
         
     <LinearLayout
