@@ -28,157 +28,179 @@ import com.laurinka.skga.app.storage.StorageHelper;
  */
 public class MainActivity extends ListActivity {
 
-    private SharedPreferences sharedPreferences;
-    private ArrayList<HashMap<String, String>> data;
-    public SimpleAdapter adapter;
+	private SharedPreferences sharedPreferences;
+	private ArrayList<HashMap<String, String>> data;
+	public SimpleAdapter adapter;
 
 	@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
 
-        sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES, MODE_PRIVATE);
-        List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
-        if (numbers.isEmpty()) {
-            Intent intent = new Intent(this, AddByActivity.class);
-            startActivity(intent);
-        }
-   
-        showList();
-        updateAll();
-        showList();
-    }
- 
-    public void add(View view) {
-        startActivity(new Intent(this, AddByActivity.class));
-    }
+		sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES,
+				MODE_PRIVATE);
+		List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
+		if (numbers.isEmpty()) {
+			Intent intent = new Intent(this, AddByActivity.class);
+			startActivity(intent);
+		}
 
-    public void about(View view) {
-        startActivity(new Intent(this, AboutActivity.class));
-    }
-    
-    public void edit(View view) {
-        startActivity(new Intent(this, EditActivity.class));
-    }
+		showList();
+		updateAll();
+		showList();
+	}
 
-    private void showList() {
-        data = findData();
+	public void add(View view) {
+		startActivity(new Intent(this, AddByActivity.class));
+	}
 
-        adapter = new SimpleAdapter(this, data,
-                R.layout.rowlayout, new String[]{Constants.NAME, Constants.HCP}, new int[]{R.id.name, R.id.hcp});
+	public void about(View view) {
+		startActivity(new Intent(this, AboutActivity.class));
+	}
 
-        // Assign adapter to ListView
-        setListAdapter(adapter);
-    }
+	public void edit(View view) {
+		startActivity(new Intent(this, EditActivity.class));
+	}
 
-    private ArrayList<HashMap<String, String>> findData() {
-        List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
+	private void showList() {
+		data = findData();
 
-        ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
-        String[] numbersA = numbers.toArray(new String[0]);
-        for (int i = 0; i < numbers.size(); i++) {
-            HashMap<String, String> map = new HashMap<String, String>();
-            String value = numbersA[i];
-            map.put(Constants.SKGA_NR, value);
-            String hcp = sharedPreferences.getString(Constants.HCP_PREFIX + value, "");
-            map.put(Constants.HCP, hcp);
-            String name = sharedPreferences.getString(Constants.NAME_PREFIX + value, "");
-            map.put(Constants.NAME, name);
-            data.add(map);
-        }
-        return data;
-    }
-    
-    public class UpdaterBroadcastReceiver extends BroadcastReceiver {       
+		adapter = new SimpleAdapter(this, data, R.layout.rowlayout,
+				new String[] { Constants.NAME, Constants.HCP }, new int[] {
+						R.id.name, R.id.hcp });
+
+		// Assign adapter to ListView
+		setListAdapter(adapter);
+	}
+
+	private ArrayList<HashMap<String, String>> findData() {
+		List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
+
+		ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
+		String[] numbersA = numbers.toArray(new String[0]);
+		for (int i = 0; i < numbers.size(); i++) {
+			HashMap<String, String> map = new HashMap<String, String>();
+			String value = numbersA[i];
+			map.put(Constants.SKGA_NR, value);
+			String hcp = sharedPreferences.getString(Constants.HCP_PREFIX
+					+ value, "");
+			map.put(Constants.HCP, hcp);
+			String name = sharedPreferences.getString(Constants.NAME_PREFIX
+					+ value, "");
+			map.put(Constants.NAME, name);
+			data.add(map);
+		}
+		return data;
+	}
+
+	public class UpdaterBroadcastReceiver extends BroadcastReceiver {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			showList();
 		}
-}
+	}
 
-    @Override
-    protected void onResume() {
-    	//handle changes from edit activity
-    	showList();
-    	
-    	//handles changes from async tasks
-        IntentFilter filter = new IntentFilter(Constants.COM_LAURINKA_SKGA_APP_REFRESH);
-        UpdaterBroadcastReceiver r = new UpdaterBroadcastReceiver();
-        registerReceiver(r,filter);
-        super.onResume();
-    }
+	@Override
+	protected void onResume() {
+		// handle changes from edit activity
+		showList();
 
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        // Create a progress bar to display while the list loads
-        ProgressBar progressBar = new ProgressBar(this);
-        progressBar.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
-        progressBar.setIndeterminate(true);
-        getListView().setEmptyView(progressBar);
+		// handles changes from async tasks
+		IntentFilter filter = new IntentFilter(
+				Constants.COM_LAURINKA_SKGA_APP_REFRESH);
+		UpdaterBroadcastReceiver r = new UpdaterBroadcastReceiver();
+		registerReceiver(r, filter);
+		super.onResume();
+	}
 
-        // Must add the progress bar to the root of the layout
-        ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
-        root.addView(progressBar);
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		// Create a progress bar to display while the list loads
+		ProgressBar progressBar = new ProgressBar(this);
+		progressBar.setLayoutParams(new ViewGroup.LayoutParams(
+				ViewGroup.LayoutParams.WRAP_CONTENT,
+				ViewGroup.LayoutParams.WRAP_CONTENT));
+		progressBar.setIndeterminate(true);
+		getListView().setEmptyView(progressBar);
 
-        @SuppressWarnings("unchecked")
-		Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);
-        final String message = map.get(Constants.SKGA_NR);
-        new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
-            public void onResponse(Hcp response) {
-                Log.i(this.getClass().toString(), response.toString());
-                sharedPreferences.edit()             //
-                        .putString(Constants.HCP_PREFIX + message, response.getHcp())       //
-                        .putString(Constants.CLUB_PREFIX + message, response.getClub())       //
-                        .putString(Constants.NAME_PREFIX + message, response.getName())       //
-                        .commit();
-                callBack(message, response);
-            }
+		// Must add the progress bar to the root of the layout
+		ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
+		root.addView(progressBar);
 
-            public void onError(Integer errorCode, String errorMessage) {
-                Log.w(this.getClass().toString(), errorCode + " " + errorMessage);
-            }
+		@SuppressWarnings("unchecked")
+		Map<String, String> map = (Map<String, String>) getListAdapter()
+				.getItem(position);
+		final String message = map.get(Constants.SKGA_NR);
+		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
+			public void onResponse(Hcp response) {
+				Log.i(this.getClass().toString(), response.toString());
+				sharedPreferences
+						.edit()
+						//
+						.putString(Constants.HCP_PREFIX + message,
+								response.getHcp()) //
+						.putString(Constants.CLUB_PREFIX + message,
+								response.getClub()) //
+						.putString(Constants.NAME_PREFIX + message,
+								response.getName()) //
+						.commit();
+				callBack(message, response);
+			}
 
-        });
-    }
-    public void callBack(String message, Hcp response) {
-        showList();
-        Toast.makeText(this, response.getClub(), Toast.LENGTH_LONG).show();
-    }
+			public void onError(Integer errorCode, String errorMessage) {
+				Log.w(this.getClass().toString(), errorCode + " "
+						+ errorMessage);
+			}
 
-    public void updateAll() {
-        try {
-    	int count = getListAdapter().getCount();
-    	for (int i= 0; i<count; i++) {
-    		updateItemOnIndex(i);
-    	}
-        } catch (IndexOutOfBoundsException ignored) {
-            //TODO radim
-        }
-    }
-    private void updateItemOnIndex(int position) {
-    	   @SuppressWarnings("unchecked")
-		Map<String, String> map = (Map<String, String>) getListAdapter().getItem(position);
-           final String message = map.get(Constants.SKGA_NR);
-    	new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
-            public void onResponse(Hcp response) {
-                Log.i(this.getClass().toString(), response.toString());
-                sharedPreferences.edit()             //
-                        .putString(Constants.HCP_PREFIX + message, response.getHcp())       //
-                        .putString(Constants.CLUB_PREFIX + message, response.getClub())       //
-                        .putString(Constants.NAME_PREFIX + message, response.getName())       //
-                        .commit();
-                //callBack(message, response);
-            }
+		});
+	}
 
-            public void onError(Integer errorCode, String errorMessage) {
-                Log.w(this.getClass().toString(), errorCode + " " + errorMessage);
-            }
+	public void callBack(String message, Hcp response) {
+		showList();
+		Toast.makeText(this, response.getClub(), Toast.LENGTH_LONG).show();
+	}
 
-        });
-    }
-    
-    public void close(View view) {
-        MainActivity.this.finish();
-    }
+	public void updateAll() {
+		try {
+			int count = getListAdapter().getCount();
+			for (int i = 0; i < count; i++) {
+				updateItemOnIndex(i);
+			}
+		} catch (IndexOutOfBoundsException ignored) {
+			// TODO radim
+		}
+	}
+
+	private void updateItemOnIndex(int position) {
+		@SuppressWarnings("unchecked")
+		Map<String, String> map = (Map<String, String>) getListAdapter()
+				.getItem(position);
+		final String message = map.get(Constants.SKGA_NR);
+		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
+			public void onResponse(Hcp response) {
+				Log.i(this.getClass().toString(), response.toString());
+				sharedPreferences
+						.edit()
+						//
+						.putString(Constants.HCP_PREFIX + message,
+								response.getHcp()) //
+						.putString(Constants.CLUB_PREFIX + message,
+								response.getClub()) //
+						.putString(Constants.NAME_PREFIX + message,
+								response.getName()) //
+						.commit();
+				// callBack(message, response);
+			}
+
+			public void onError(Integer errorCode, String errorMessage) {
+				Log.w(this.getClass().toString(), errorCode + " "
+						+ errorMessage);
+			}
+
+		});
+	}
+
+	public void close(View view) {
+		finish();
+	}
 }

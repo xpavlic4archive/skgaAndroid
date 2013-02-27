@@ -9,7 +9,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
 import android.os.AsyncTask;
-
+/**
+ * Async rest client.
+ * @author radimpavlicek
+ *
+ */
 public class RestClient {
 
     private String server;

@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+/**
+ * Back intro screen.
+ * @author radimpavlicek
+ *
+ */
 public class IntroActivity extends Activity {
 	
 	public void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,6 @@ public class IntroActivity extends Activity {
     }
     
     public void close(View view) {
-        IntroActivity.this.finish();
+        finish();
     }
 }

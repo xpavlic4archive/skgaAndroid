@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+/**
+ * Shows screen with 2 choices, either search by name or search by number.
+ * @author radimpavlicek
+ *
+ */
 public class AddByActivity extends Activity {
 
 	@Override

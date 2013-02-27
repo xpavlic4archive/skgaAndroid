@@ -8,11 +8,15 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.laurinka.skga.app.DomXmlParser;
-
-public final class OnRestResponseImplementation implements OnRestResponse {
+/**
+ * Generic handler who parses list of name-number xmls.
+ * @author radimpavlicek
+ *
+ */
+public final class OnSearchResponse implements OnRestResponse {
 	private final OnSKGASearchResponse onRestResponseponse;
 
-	public OnRestResponseImplementation(OnSKGASearchResponse callBack) {
+	public OnSearchResponse(OnSKGASearchResponse callBack) {
 		this.onRestResponseponse = callBack;
 	}
 

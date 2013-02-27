@@ -12,7 +12,11 @@ import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
 import com.laurinka.skga.app.rest.SkgaService;
 import com.laurinka.skga.app.storage.StorageHelper;
-
+/**
+ * Back screen where you add number and this will be saved.
+ * @author radimpavlicek
+ *
+ */
 public class AddByNumberActivity extends Activity {
 	private SharedPreferences sharedPreferences;
 

@@ -11,7 +11,7 @@ public interface Constants {
     String HCP = "hcp";
     String HCP_PREFIX = PREFIX + "HCP";
     String NAME_PREFIX = PREFIX + "NAME";
-    String NAME = "name";
+	String NAME = "name";
     String CLUB_PREFIX = PREFIX + "CLUB";
 	public  static final String COM_LAURINKA_SKGA_APP_REFRESH = "com.laurinka.skga.app.REFRESH";
 	String PATTERN = "pattern";

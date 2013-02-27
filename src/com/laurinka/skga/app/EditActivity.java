@@ -12,7 +12,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.laurinka.skga.app.storage.StorageHelper;
-
+/**
+ * Backs edit screen.
+ * @author radimpavlicek
+ *
+ */
 public class EditActivity extends ListActivity {
 	private ArrayList<String> data;
 	

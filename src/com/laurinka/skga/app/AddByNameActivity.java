@@ -30,7 +30,6 @@ public class AddByNameActivity extends ListActivity {
 
 	private SharedPreferences sharedPreferences;
 	public SimpleAdapter adapter;
-	// private NamesDbAdapter mDbHelper;
 	private String pattern;
 
 	@Override
@@ -97,10 +96,14 @@ public class AddByNameActivity extends ListActivity {
 	}
 
 	private void fillData() {
-		 final ProgressDialog dialog = ProgressDialog.show(this, "", "",
-		 true);
+		 ProgressDialog prog;
+		    prog = new ProgressDialog(this);
+		    prog.setIndeterminate(false);
+		    prog.setMessage(getString(R.string.about_button));
+		    prog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+		    prog.show();
 		
-		 search(dialog);
+		 search(prog);
 		
 	}
 
@@ -134,24 +137,4 @@ public class AddByNameActivity extends ListActivity {
 
 		});
 	}
-
-//	private class LongOperation extends AsyncTask<String, Void, String> {
-//		Activity activity;
-//		private ProgressDialog dialog;
-//
-//		public LongOperation(Activity act, ProgressDialog adialog) {
-//			dialog = adialog;
-//			activity = act;
-//		}
-//
-//		@Override
-//		protected String doInBackground(String... params) {
-//			return "Executed";
-//		}
-//
-//		@Override
-//		protected void onPostExecute(String result) {
-//			dialog.dismiss();
-//		}
-//	}
 }

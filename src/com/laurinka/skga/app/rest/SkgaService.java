@@ -59,6 +59,6 @@ public class SkgaService extends RestClient {
 		if (null == what || "".equals(what))
 			return;
 		super.execute("members/search?q=" + what,
-				new OnRestResponseImplementation(onRestResponseponse));
+				new OnSearchResponse(onRestResponseponse));
 	}
 }

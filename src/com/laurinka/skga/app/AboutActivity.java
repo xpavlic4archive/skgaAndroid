@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.laurinka.skga.app.util.ResourceHelper;
 
 /**
- * Show about dialog with contact, webpage and legal info.
+ * Show about dialog with contact, wwww and legal info.
  */
 public class AboutActivity extends Activity {
     @Override
