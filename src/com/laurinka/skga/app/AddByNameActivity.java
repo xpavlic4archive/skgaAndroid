@@ -99,7 +99,7 @@ public class AddByNameActivity extends ListActivity {
 		 ProgressDialog prog;
 		    prog = new ProgressDialog(this);
 		    prog.setIndeterminate(false);
-		    prog.setMessage(getString(R.string.about_button));
+		    prog.setMessage(getString(R.string.searching));
 		    prog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		    prog.show();
 		
