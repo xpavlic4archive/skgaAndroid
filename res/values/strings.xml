@@ -28,4 +28,5 @@
     <string name="back_to_search_button">Back to Search</string>
     <string name="hr">Horizontal rule</string>
     <string name="searching">Searching</string>
+    <string name="select_all_button">Select all</string>
 </resources>

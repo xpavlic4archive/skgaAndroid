@@ -43,6 +43,12 @@
             style="@style/action_bar">
     
 	    <Button
+	        android:id="@+id/select_all_button"
+	        android:onClick="invert"
+	        android:text="@string/select_all_button"
+	        style="@style/Buttons.ActionBar.Main" />
+	    
+	    <Button
 	        android:id="@+id/delete_button"
 	        android:onClick="delete"
 	        android:text="@string/delete_button"
