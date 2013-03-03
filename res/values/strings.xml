@@ -5,13 +5,15 @@
     <string name="edit_message">Players number</string>
     <string name="button_send">Add</string>
     <string name="hint_text">Add SKGA number. Eg. 9811</string>
+    <string name="hint_text_cfg">Add CGF number. Eg. 950806</string>
     <string name="add_button">Add</string>
     <string name="about_button">About</string>
     <string name="logo">Laurinka.com</string>
     <string name="edit_button">Edit</string>
     <string name="close_button">Back</string>
     <string name="delete_button">Delete selected</string>
-    <string name="by_skga">Search by players number</string>
+    <string name="by_skga">Search by SKGA players number</string>
+        <string name="by_cgf">Search by CGF players number</string>
     <string name="no_names">No names.</string>
     <string name="search_by_name">Search by name of player</string>
     <string name="search_hint_text">Enter beginning of player\'s name. E.g. Marek</string>

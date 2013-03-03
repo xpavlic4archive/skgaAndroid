@@ -74,21 +74,39 @@ public class MainActivity extends ListActivity {
 	}
 
 	private ArrayList<HashMap<String, String>> findData() {
-		List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
-
+		
 		ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
+		{
+		List<String> numbers = StorageHelper.getSkgaNumbers(sharedPreferences);
 		String[] numbersA = numbers.toArray(new String[0]);
 		for (int i = 0; i < numbers.size(); i++) {
 			HashMap<String, String> map = new HashMap<String, String>();
 			String value = numbersA[i];
-			map.put(Constants.SKGA_NR, value);
-			String hcp = sharedPreferences.getString(Constants.HCP_PREFIX
+			map.put(Constants.NR, value);
+			String hcp = sharedPreferences.getString(Constants.SKGA_HCP_PREFIX
 					+ value, "");
 			map.put(Constants.HCP, hcp);
-			String name = sharedPreferences.getString(Constants.NAME_PREFIX
+			String name = sharedPreferences.getString(Constants.SKGA_NAME_PREFIX
 					+ value, "");
 			map.put(Constants.NAME, name);
 			data.add(map);
+		}
+		}
+		{
+		List<String> numbers = StorageHelper.getCgfNumbers(sharedPreferences);
+		String[] numbersA = numbers.toArray(new String[0]);
+		for (int i = 0; i < numbers.size(); i++) {
+			HashMap<String, String> map = new HashMap<String, String>();
+			String value = numbersA[i];
+			map.put(Constants.NR, value);
+			String hcp = sharedPreferences.getString(Constants.CGF_HCP_PREFIX
+					+ value, "");
+			map.put(Constants.HCP, hcp);
+			String name = sharedPreferences.getString(Constants.CGF_NAME_PREFIX
+					+ value, "");
+			map.put(Constants.NAME, name);
+			data.add(map);
+		}
 		}
 		return data;
 	}
@@ -127,37 +145,7 @@ public class MainActivity extends ListActivity {
 		ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
 		root.addView(progressBar);
 
-		@SuppressWarnings("unchecked")
-		Map<String, String> map = (Map<String, String>) getListAdapter()
-				.getItem(position);
-		final String message = map.get(Constants.SKGA_NR);
-		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
-			public void onResponse(Hcp response) {
-				Log.i(this.getClass().toString(), response.toString());
-				sharedPreferences
-						.edit()
-						//
-						.putString(Constants.HCP_PREFIX + message,
-								response.getHcp()) //
-						.putString(Constants.CLUB_PREFIX + message,
-								response.getClub()) //
-						.putString(Constants.NAME_PREFIX + message,
-								response.getName()) //
-						.commit();
-				callBack(message, response);
-			}
-
-			public void onError(Integer errorCode, String errorMessage) {
-				Log.w(this.getClass().toString(), errorCode + " "
-						+ errorMessage);
-			}
-
-		});
-	}
-
-	public void callBack(String message, Hcp response) {
-		showList();
-		Toast.makeText(this, response.getClub(), Toast.LENGTH_LONG).show();
+        updateItemOnIndex(position);
 	}
 
 	public void updateAll() {
@@ -175,18 +163,18 @@ public class MainActivity extends ListActivity {
 		@SuppressWarnings("unchecked")
 		Map<String, String> map = (Map<String, String>) getListAdapter()
 				.getItem(position);
-		final String message = map.get(Constants.SKGA_NR);
+		final String message = map.get(Constants.NR);
 		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
 			public void onResponse(Hcp response) {
 				Log.i(this.getClass().toString(), response.toString());
 				sharedPreferences
 						.edit()
 						//
-						.putString(Constants.HCP_PREFIX + message,
+						.putString(Constants.SKGA_HCP_PREFIX + message,
 								response.getHcp()) //
-						.putString(Constants.CLUB_PREFIX + message,
+						.putString(Constants.SKGA_CLUB_PREFIX + message,
 								response.getClub()) //
-						.putString(Constants.NAME_PREFIX + message,
+						.putString(Constants.SKGA_NAME_PREFIX + message,
 								response.getName()) //
 						.commit();
 				// callBack(message, response);

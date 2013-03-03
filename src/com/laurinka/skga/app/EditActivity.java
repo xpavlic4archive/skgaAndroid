@@ -55,13 +55,13 @@ public class EditActivity extends ListActivity {
 	}
 
 	private void findData() {
-		List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
+		List<String> numbers = StorageHelper.getSkgaNumbers(sharedPreferences);
 
 		ArrayList<String> data = new ArrayList<String>();
 		String[] numbersA = numbers.toArray(new String[0]);
 		for (int i = 0; i < numbers.size(); i++) {
 			String value = numbersA[i];
-			String name = sharedPreferences.getString(Constants.NAME_PREFIX
+			String name = sharedPreferences.getString(Constants.SKGA_NAME_PREFIX
 					+ value, "");
 			data.add(name);
 
@@ -86,13 +86,13 @@ public class EditActivity extends ListActivity {
 		SparseBooleanArray checkedItemPositions = getListView()
 				.getCheckedItemPositions();
 		int itemCount = getListView().getCount();
-		List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
+		List<String> numbers = StorageHelper.getSkgaNumbers(sharedPreferences);
 		for (int i = itemCount - 1; i >= 0; i--) {
 			if (checkedItemPositions.get(i)) {
 				adapter.remove(data.get(i));
 				getListView().setItemChecked(i, false);
 				String toBeDeleted = numbers.get(i);
-				StorageHelper.removeNumber(sharedPreferences, toBeDeleted);
+				StorageHelper.removeSkgaNumber(sharedPreferences, toBeDeleted);
 			}
 		}
 		adapter.notifyDataSetChanged();

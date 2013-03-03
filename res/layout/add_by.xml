@@ -1,64 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context=".EditActivity" >
-    
+
     <TextView
         android:id="@+id/title"
-        android:text="@string/title_addRecord"
         style="@style/Title"
-    />
-    
-    <ImageView 
-        android:id="@+id/title_bar_top"
-		style="@style/TitleBar"
-		android:layout_below="@+id/title"
-		android:contentDescription="@string/hr"
-		/>
-    
-    <RelativeLayout android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/title_bar_top"
-        android:layout_marginTop="5dp">
-    
-	    <Button
-	        android:id="@+id/by_skga_button"
-	        android:onClick="byNumber"
-	        style="@style/Buttons.AddBy"
-	        android:text="@string/by_skga" />
-	
-	    <Button
-	        android:id="@+id/search_by_name_button"
-	        android:layout_below="@id/by_skga_button"
-	        android:onClick="search"
-	        style="@style/Buttons.AddBy"
-	        android:text="@string/search_by_name" />
-	    
-    </RelativeLayout>
-    
-    <ImageView 
-        android:id="@+id/title_bar_bottom"
-		style="@style/TitleBar"
-		android:layout_above="@+id/action_bar"
-		android:contentDescription="@string/hr"
-	/>
-        
-    <LinearLayout
-            android:id="@+id/action_bar"
-            style="@style/action_bar">
+        android:text="@string/title_addRecord" />
 
-	    <Button
-	        android:id="@+id/back_button"
-	        android:onClick="back"
-	        android:layout_width="0dp"
-	        style="@style/Buttons.ActionBar"
-	        android:layout_weight="1"
-	        android:text="@string/backRecords_button" />
-    
+    <ImageView
+        android:id="@+id/title_bar_top"
+        style="@style/TitleBar"
+        android:layout_below="@+id/title"
+        android:contentDescription="@string/hr" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/title_bar_top"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/by_skga_button"
+            style="@style/Buttons.AddBy"
+            android:onClick="byNumber"
+            android:text="@string/by_skga" />
+
+        <Button
+            android:id="@+id/by_cgf_button"
+            android:layout_below="@id/by_skga_button"
+            style="@style/Buttons.AddBy"
+            android:onClick="byCgfNumber"
+            android:text="@string/by_cgf" />
+
+        <Button
+            android:id="@+id/search_by_name_button"
+            style="@style/Buttons.AddBy"
+            android:layout_below="@id/by_cgf_button"
+            android:onClick="search"
+            android:text="@string/search_by_name" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/title_bar_bottom"
+        style="@style/TitleBar"
+        android:layout_above="@+id/action_bar"
+        android:contentDescription="@string/hr" />
+
+    <LinearLayout
+        android:id="@+id/action_bar"
+        style="@style/action_bar" >
+
+        <Button
+            android:id="@+id/back_button"
+            style="@style/Buttons.ActionBar"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="back"
+            android:text="@string/backRecords_button" />
     </LinearLayout>
 
 </RelativeLayout>

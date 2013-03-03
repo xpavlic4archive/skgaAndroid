@@ -6,41 +6,43 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.laurinka.skga.app.rest.CgfService;
 import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
-import com.laurinka.skga.app.rest.SkgaService;
 import com.laurinka.skga.app.storage.StorageHelper;
+
 /**
- * Back screen where you add number and this will be saved.
+ * Back screen where you add cgf number and this will be saved.
  * @author radimpavlicek
  *
  */
-public class AddByNumberActivity extends AbstractAddByNumberActivity {
+public class AddByCgfNumberActivity extends AbstractAddByNumberActivity {
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.add);
-	}
-	
-	public void saveNumber(View view) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);    
+        setContentView(R.layout.add_cgf);
+    }
+
+    public void saveNumber(View view) {
 		final String message = findNumber();
+        Log.i(this.getClass().toString(), message);
 
-		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
+		new CgfService().queryHcp(message, new OnSKGAHcpResponse() {
 
 			public void onResponse(Hcp response) {
 				Log.d(this.getClass().toString(), response.toString());
 				sharedPreferences
 						.edit()
 						//
-						.putString(Constants.SKGA_HCP_PREFIX + message,
+						.putString(Constants.CGF_HCP_PREFIX + message,
 								response.getHcp()) //
-						.putString(Constants.SKGA_CLUB_PREFIX + message,
+						.putString(Constants.CGF_CLUB_PREFIX + message,
 								response.getClub()) //
-						.putString(Constants.SKGA_NAME_PREFIX + message,
+						.putString(Constants.CGF_NAME_PREFIX + message,
 								response.getName()) //
 						.commit();
-				StorageHelper.addSkgaNumber(sharedPreferences, message);
+				StorageHelper.addCgfNumber(sharedPreferences, message);
 				sendBroadcast(new Intent(Constants.COM_LAURINKA_SKGA_APP_REFRESH));
 			}
 

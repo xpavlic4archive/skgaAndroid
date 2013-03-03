@@ -11,7 +11,8 @@
     <string name="close_button">Zpět</string>
     <string name="delete_button">Smazat označené</string>
     <string name="logo">Laurinka.com</string>
-    <string name="by_skga">Podle čísla hráče</string>
+    <string name="by_skga">Podle SKGA čísla hráče</string>
+    <string name="by_cgf">Podle CGF čísla hráče</string>
     <string name="no_names">Žádná jména.</string>
     <string name="search_by_name">Hledat podle jména hráče</string>
     <string name="search_hint_text">Zadejte začátek jména hráče. Napr. Marek</string>

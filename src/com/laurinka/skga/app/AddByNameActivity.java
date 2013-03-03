@@ -71,14 +71,14 @@ public class AddByNameActivity extends ListActivity {
 				sharedPreferences
 						.edit()
 						//
-						.putString(Constants.HCP_PREFIX + message,
+						.putString(Constants.SKGA_HCP_PREFIX + message,
 								response.getHcp()) //
-						.putString(Constants.CLUB_PREFIX + message,
+						.putString(Constants.SKGA_CLUB_PREFIX + message,
 								response.getClub()) //
-						.putString(Constants.NAME_PREFIX + message,
+						.putString(Constants.SKGA_NAME_PREFIX + message,
 								response.getName()) //
 						.commit();
-				StorageHelper.addNumber(sharedPreferences, message);
+				StorageHelper.addSkgaNumber(sharedPreferences, message);
 				sendBroadcast(new Intent(
 						Constants.COM_LAURINKA_SKGA_APP_REFRESH));
 			}
