@@ -1,13 +1,12 @@
 package com.laurinka.skga.app.storage;
 
+import android.content.SharedPreferences;
+import com.laurinka.skga.app.Constants;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-
-import android.content.SharedPreferences;
-
-import com.laurinka.skga.app.Constants;
 
 /**
  * Crud operation on storage with golf numbers and handicap values.
@@ -66,4 +65,13 @@ public class StorageHelper {
 		String wipedDoubleSpaces = replaceFirst.replaceAll("  ", " ");
 		sharedPreferences.edit().putString(Constants.SKGA_NUMBERS, wipedDoubleSpaces).commit();
 	}
+    public static void removeCgfNumber(SharedPreferences sharedPreferences, String number) {
+        String tmpCsv = sharedPreferences.getString(Constants.CGF_NUMBERS, "");
+        if (tmpCsv.equals(""))
+            return;
+        String replaceFirst = tmpCsv.replaceFirst(number, "");
+        String wipedDoubleSpaces = replaceFirst.replaceAll("  ", " ");
+        sharedPreferences.edit().putString(Constants.CGF_NUMBERS, wipedDoubleSpaces).commit();
+    }
+
 }
