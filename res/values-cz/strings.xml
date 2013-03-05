@@ -5,6 +5,7 @@
     <string name="edit_message">Číslo hráče</string>
     <string name="button_send">Přidat</string>
     <string name="hint_text">Přidat SKGA číslo. Např. 9811</string>
+    <string name="hint_text_cfg">Přidat CGF číslo. Např. 950806</string>
     <string name="add_button">Přidat</string>
     <string name="about_button">O nás</string>
     <string name="edit_button">Změnit</string>
