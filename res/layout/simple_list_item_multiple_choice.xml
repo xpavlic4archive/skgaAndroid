@@ -23,5 +23,6 @@
     android:paddingTop="6dp"
     android:paddingBottom="6dp"
     android:textSize="17sp"
-    android:textColor="@color/colorGray"
+    android:textColor="@color/color_checkedtextview"
+    android:background="@drawable/bg_checkedtextview"
 />

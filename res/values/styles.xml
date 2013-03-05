@@ -3,6 +3,7 @@
     
      <color name="colorGray">#c0c0c0</color>
      <color name="colorGrayDark">#888888</color>
+     <color name="colorDarkCyan">#002c3a</color>
      
      <style name="Buttons">
         <item name="android:layout_width">wrap_content</item>
