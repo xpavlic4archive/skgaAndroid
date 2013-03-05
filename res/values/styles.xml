@@ -100,5 +100,19 @@
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:padding">5dp</item>
     </style>
+    
+    <style name="LayoutView" parent="android:Theme">
+        <item name="android:background">@drawable/bg_pattern</item>
+        <item name="android:listViewStyle">@style/TransparentListView</item>
+        <item name="android:expandableListViewStyle">@style/TransparentExpandableListView</item>
+    </style>
+
+	<style name="TransparentListView" parent="@android:style/Widget.ListView">
+		<item name="android:cacheColorHint">@android:color/transparent</item>
+	</style>
+	
+	<style name="TransparentExpandableListView" parent="@android:style/Widget.ExpandableListView">
+		<item name="android:cacheColorHint">@android:color/transparent</item>
+	</style>
 
 </resources>
