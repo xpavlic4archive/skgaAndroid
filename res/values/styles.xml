@@ -124,5 +124,11 @@
 	<style name="TransparentExpandableListView" parent="@android:style/Widget.ExpandableListView">
 		<item name="android:cacheColorHint">@android:color/transparent</item>
 	</style>
+	
+	<!-- Customize an Action Bar -->
+    <style name="MyActionBar">
+        <item name="android:background">@drawable/logo_actionbar</item>
+        <item name="android:height">36dp</item>
+    </style>
 
 </resources>
