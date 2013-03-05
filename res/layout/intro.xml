@@ -13,6 +13,7 @@
 
         <Button style="@style/Buttons.Intro"
                 android:text="@string/records_button"
+                android:tag="buttonIntro"
                 android:onClick="view"
                 android:id="@+id/records_button"
                 android:layout_below="@id/logo_app"
@@ -20,6 +21,7 @@
 
         <Button style="@style/Buttons.Intro"
                 android:text="@string/about_button"
+                android:tag="buttonIntro"
                 android:onClick="about"
                 android:id="@+id/about_button"
                 android:layout_below="@id/records_button"
@@ -27,6 +29,7 @@
         
         <Button style="@style/Buttons.Intro"
                 android:text="@string/exit_button"
+                android:tag="buttonIntro"
                 android:onClick="close"
                 android:id="@+id/exit_button"
                 android:layout_below="@id/about_button"

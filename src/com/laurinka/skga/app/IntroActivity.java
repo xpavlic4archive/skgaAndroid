@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 /**
  * Back intro screen.
  * @author radimpavlicek
@@ -15,17 +16,20 @@ import android.widget.Button;
  */
 @SuppressLint("NewApi")
 public class IntroActivity extends Activity {
-	
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		/** Setting a custom layout for the list activity */
 		setContentView(R.layout.intro);
 		
-		/** Added tyFace for Intro buttons */
-		Button myButton=(Button)findViewById(R.id.records_button);
+		/** Added typeFace for Intro buttons */
+		String s = "buttonIntro";
+		RelativeLayout layout = new RelativeLayout(this);
+		Button button = (Button)layout.findViewWithTag(s);
+		
 		Typeface typeFace=Typeface.createFromAsset(getAssets(),"fonts/helvneue63medextobl.ttf");
-		myButton.setTypeface(typeFace);
+		button.setTypeface(typeFace);
 		
 		/** Hide ActionBar in IntroActivity screen*/
 		ActionBar actionBar = getActionBar();

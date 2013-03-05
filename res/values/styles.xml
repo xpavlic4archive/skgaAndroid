@@ -8,20 +8,20 @@
      <style name="Buttons">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-     </style>
-     
-	 <style name="Buttons.Intro">
-        <item name="android:width">280dp</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">#393e24</item>
         <item name="android:shadowColor">#d5eb53</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">1</item>
-        <item name="android:layout_marginBottom">16dp</item>
         <item name="android:background">@drawable/button</item>
         <item name="android:gravity">center</item>
         <item name="android:textStyle">italic</item>
+     </style>
+     
+	 <style name="Buttons.Intro">
+        <item name="android:width">280dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
      </style>
      <style name="Buttons.ActionBar">
          <item name="android:textSize">14sp</item>
@@ -114,7 +114,7 @@
     
     <style name="CustomActivityTheme">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
-        <item name="android:background">@drawable/bg_gradient</item>
+        <item name="android:windowBackground">@drawable/bg_gradient</item>
     </style>
     
     <style name="LayoutView" parent="android:Theme">
