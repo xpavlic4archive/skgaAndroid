@@ -63,8 +63,8 @@
     <style name="IntroLogoApp">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">5sp</item>
-        <item name="android:layout_marginBottom">5sp</item>
+        <item name="android:layout_marginTop">110sp</item>
+        <item name="android:layout_marginBottom">100sp</item>
     </style>
 
     <style name="MainList">
