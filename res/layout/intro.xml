@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    style="@style/LayoutView">
     
     <ImageView android:id="@+id/logo_app"
             android:contentDescription="@string/app_name"
