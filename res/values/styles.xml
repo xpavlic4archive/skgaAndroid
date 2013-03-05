@@ -111,6 +111,11 @@
         <item name="android:padding">5dp</item>
     </style>
     
+    <style name="CustomActivityTheme">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:background">@drawable/bg_gradient</item>
+    </style>
+    
     <style name="LayoutView" parent="android:Theme">
         <item name="android:background">@drawable/bg_pattern</item>
         <item name="android:listViewStyle">@style/TransparentListView</item>
