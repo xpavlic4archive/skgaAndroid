@@ -1,9 +1,12 @@
 package com.laurinka.skga.app;
 
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +15,7 @@ import android.widget.Button;
  * @author radimpavlicek
  *
  */
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class IntroActivity extends Activity {
 
 
