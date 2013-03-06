@@ -24,10 +24,14 @@ public class IntroActivity extends Activity {
 		setContentView(R.layout.intro);
 		
 		/** Added typeFace for Intro buttons */
-		Button myButton=(Button)findViewById(R.id.records_button);
+		Button myButtonA=(Button)findViewById(R.id.records_button);
+		Button myButtonB=(Button)findViewById(R.id.about_button);
+		Button myButtonC=(Button)findViewById(R.id.exit_button);
 		
 		Typeface typeFace=Typeface.createFromAsset(getAssets(),"fonts/helvneue63medextobl.ttf");
-		myButton.setTypeface(typeFace);
+		myButtonA.setTypeface(typeFace);
+		myButtonB.setTypeface(typeFace);
+		myButtonC.setTypeface(typeFace);
 		
 		/** Hide ActionBar in IntroActivity screen*/
 		ActionBar actionBar = getActionBar();

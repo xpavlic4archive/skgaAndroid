@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
+              android:background="@drawable/bg_list"
+              android:gravity="center_vertical"
               android:layout_height="wrap_content">
 
     <TextView
@@ -11,10 +13,10 @@
 
     </TextView>
     <TextView
-            android:id="@+id/hcp"
-            android:text="@+id/hcp"
-            android:gravity="right"
-            android:layout_weight="1"
-            style="@style/RowLayout" >
+        android:id="@+id/hcp"
+        android:text="@+id/hcp"
+        android:gravity="right"
+        android:layout_weight="1"
+        style="@style/RowLayout.Hcp" >
     </TextView>
 </LinearLayout>

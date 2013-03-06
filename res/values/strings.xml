@@ -13,7 +13,7 @@
     <string name="close_button">Back</string>
     <string name="delete_button">Delete selected</string>
     <string name="by_skga">Search by SKGA players number</string>
-        <string name="by_cgf">Search by CGF players number</string>
+    <string name="by_cgf">Search by CGF players number</string>
     <string name="no_names">No names.</string>
     <string name="search_by_name">Search by name of player</string>
     <string name="search_hint_text">Enter beginning of player\'s name. E.g. Marek</string>
@@ -28,7 +28,6 @@
     <string name="backRecords_button">Back to my records</string>
     <string name="choose_name">Choose players name</string>
     <string name="back_to_search_button">Back to Search</string>
-    <string name="hr">Horizontal rule</string>
     <string name="searching">Searching</string>
     <string name="select_all_button">Select all</string>
 </resources>

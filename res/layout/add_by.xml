@@ -3,23 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".EditActivity" >
+    tools:context=".EditActivity"
+    style="@style/LayoutView" >
+    
+    <ImageView
+   	    android:id="@+id/logo"
+   	    android:contentDescription="@string/app_name"
+   	    style="@style/logo"
+   	    />
 
     <TextView
         android:id="@+id/title"
         style="@style/Title"
         android:text="@string/title_addRecord" />
 
-    <ImageView
-        android:id="@+id/title_bar_top"
-        style="@style/TitleBar"
-        android:layout_below="@+id/title"
-        android:contentDescription="@string/hr" />
-
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/title_bar_top"
+        android:layout_below="@+id/title"
         android:layout_marginTop="5dp"
         android:gravity="center_horizontal" >
 
@@ -44,19 +45,13 @@
             android:text="@string/search_by_name" />
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/title_bar_bottom"
-        style="@style/TitleBar"
-        android:layout_above="@+id/action_bar"
-        android:contentDescription="@string/hr" />
-
     <LinearLayout
         android:id="@+id/action_bar"
         style="@style/action_bar" >
 
         <Button
             android:id="@+id/back_button"
-            style="@style/Buttons.ActionBar"
+            style="@style/Buttons.ActionBar.Back"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:onClick="back"

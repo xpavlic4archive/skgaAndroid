@@ -27,7 +27,6 @@
     <string name="backRecords_button">Zpět na moje záznamy</string>
     <string name="choose_name">Zvol jméno hráče</string>
     <string name="back_to_search_button">Zpět na vyhledávání</string>
-    <string name="hr">Horizontal rule</string>
     <string name="searching">Hledám</string>
 	<string name="select_all_button">Vybrať všetko</string>
 </resources>

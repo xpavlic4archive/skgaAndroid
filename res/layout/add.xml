@@ -3,25 +3,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    style="@style/LayoutView">
+    
+    <ImageView
+   	    android:id="@+id/logo"
+   	    android:contentDescription="@string/app_name"
+   	    style="@style/logo"
+   	    />
     
     <TextView
         android:id="@+id/title"
         android:text="@string/by_skga"
         style="@style/Title"
     />
-    
-    <ImageView 
-        android:id="@+id/title_bar_top"
-		style="@style/TitleBar"
-		android:layout_below="@+id/title"
-		android:contentDescription="@string/hr"
-		/>
 
     <TextView
             android:id="@+id/hint"
 			style="@style/hint"
-            android:layout_below="@+id/title_bar_top"
+            android:layout_below="@+id/title"
             android:text="@string/hint_text"
             />
     
@@ -31,7 +31,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_below="@+id/hint"
-        android:layout_above="@+id/title_bar_bottom">
+        android:layout_above="@+id/action_bar">
         
         <EditText android:id="@+id/edit_message"
               android:layout_height="wrap_content"
@@ -50,13 +50,6 @@
         
     </LinearLayout>
     
-    <ImageView 
-        android:id="@+id/title_bar_bottom"
-		style="@style/TitleBar"
-		android:layout_above="@+id/action_bar"
-		android:contentDescription="@string/hr"
-	/>
-    
 	<LinearLayout
             android:id="@+id/action_bar"
             style="@style/action_bar">
@@ -65,7 +58,7 @@
             android:id="@+id/close"
             android:layout_width="0dp"
             android:text="@string/backRecords_button"
-            style="@style/Buttons.ActionBar"
+            style="@style/Buttons.ActionBar.Back"
             android:layout_weight="1"
             android:onClick="close"/>
    		 

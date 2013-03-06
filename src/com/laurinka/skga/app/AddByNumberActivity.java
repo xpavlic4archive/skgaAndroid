@@ -1,10 +1,13 @@
 package com.laurinka.skga.app;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
@@ -17,10 +20,21 @@ import com.laurinka.skga.app.storage.StorageHelper;
  */
 public class AddByNumberActivity extends AbstractAddByNumberActivity {
 
+	@SuppressLint("NewApi")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add);
+		
+		/** Added typeFace for Intro buttons */
+		TextView myTitle=(TextView)findViewById(R.id.title);
+		
+		Typeface typeFace=Typeface.createFromAsset(getAssets(),"fonts/helvneue63medextobl.ttf");
+		myTitle.setTypeface(typeFace);
+		
+		/** Hide ActionBar in IntroActivity screen*/
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 	}
 	
 	public void saveNumber(View view) {

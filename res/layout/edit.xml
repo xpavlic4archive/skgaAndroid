@@ -1,42 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    style="@style/LayoutView">
+    
+    <ImageView
+   	    android:id="@+id/logo"
+   	    android:contentDescription="@string/app_name"
+   	    style="@style/logo"
+   	    />
     
     <TextView
         android:id="@+id/title"
         android:text="@string/title_editMyRecords"
         style="@style/Title"
     />
-    
-    <ImageView 
-        android:id="@+id/title_bar_top"
-		style="@style/TitleBar"
-		android:layout_below="@+id/title"
-		android:contentDescription="@string/hr"
-		/>
 
     <ListView
         android:id="@android:id/list"
-        android:layout_below="@id/title_bar_top"
-        android:layout_above="@+id/title_bar_bottom"
+        android:layout_below="@id/title"
+        android:layout_above="@+id/action_bar"
         android:choiceMode="multipleChoice"
         style="@style/MainList" >
     </ListView>
 
     <TextView
         android:id="@android:id/empty"
-        android:layout_below="@id/title_bar_top"
-        android:layout_above="@+id/title_bar_bottom"
+        android:layout_below="@id/title"
+        android:layout_above="@+id/action_bar"
 		style="@style/no_names"
         android:text="@string/no_names" />
-
-	<ImageView 
-        android:id="@+id/title_bar_bottom"
-		style="@style/TitleBar"
-		android:layout_above="@+id/action_bar"
-		android:contentDescription="@string/hr"
-	/>
         
     <LinearLayout
             android:id="@+id/action_bar"
@@ -57,7 +50,7 @@
 	    <Button
 	        android:onClick="close"
 	        android:text="@string/close_button"
-	        style="@style/Buttons.ActionBar.Main" />
+	        style="@style/Buttons.ActionBar.Main.Back" />
 	    
 	</LinearLayout>
 </RelativeLayout>
