@@ -160,7 +160,7 @@ public class MainActivity extends ListActivity {
 				updateItemOnIndex(i, ShowClub.NO);
 			}
 		} catch (IndexOutOfBoundsException ignored) {
-			// TODO radim
+			Log.w(this.getClass().getSimpleName(), ignored);
 		}
 	}
 
