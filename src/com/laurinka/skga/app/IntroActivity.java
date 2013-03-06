@@ -1,11 +1,6 @@
 package com.laurinka.skga.app;
 
 
-<<<<<<< HEAD
-=======
-import android.annotation.TargetApi;
-import android.app.ActionBar;
->>>>>>> remotes/origin/david_graphics01
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -18,10 +13,7 @@ import android.widget.Button;
  * @author radimpavlicek
  *
  */
-<<<<<<< HEAD
-=======
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
->>>>>>> remotes/origin/david_graphics01
+
 public class IntroActivity extends Activity {
 
 
