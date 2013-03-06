@@ -7,8 +7,8 @@ package com.laurinka.skga.app.rest;
  */
 public class SkgaService extends RestClient {
     public SkgaService() {
-		//super( "http://skga-radim.rhcloud.com/rest");
-		super( "http://192.168.56.1/rest/"); /* server for local test */
+		super( "http://skga-radim.rhcloud.com/rest");
+		//super( "http://192.168.56.1/rest/"); /* server for local test */
     }
 
 	public void queryHcp(String member,
