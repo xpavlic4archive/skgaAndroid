@@ -8,7 +8,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 /**
  * Back intro screen.
  * @author radimpavlicek
@@ -17,6 +16,7 @@ import android.widget.RelativeLayout;
 @SuppressLint("NewApi")
 public class IntroActivity extends Activity {
 
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -24,12 +24,10 @@ public class IntroActivity extends Activity {
 		setContentView(R.layout.intro);
 		
 		/** Added typeFace for Intro buttons */
-		String s = "buttonIntro";
-		RelativeLayout layout = new RelativeLayout(this);
-		Button button = (Button)layout.findViewWithTag(s);
+		Button myButton=(Button)findViewById(R.id.records_button);
 		
 		Typeface typeFace=Typeface.createFromAsset(getAssets(),"fonts/helvneue63medextobl.ttf");
-		button.setTypeface(typeFace);
+		myButton.setTypeface(typeFace);
 		
 		/** Hide ActionBar in IntroActivity screen*/
 		ActionBar actionBar = getActionBar();
