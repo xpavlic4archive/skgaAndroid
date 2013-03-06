@@ -1,7 +1,6 @@
 package com.laurinka.skga.app;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,7 +12,6 @@ import android.widget.Button;
  * @author radimpavlicek
  *
  */
-@SuppressLint("NewApi")
 public class IntroActivity extends Activity {
 
 
@@ -34,8 +32,8 @@ public class IntroActivity extends Activity {
 		myButtonC.setTypeface(typeFace);
 		
 		/** Hide ActionBar in IntroActivity screen*/
-		ActionBar actionBar = getActionBar();
-		actionBar.hide();
+		//ActionBar actionBar = getActionBar();
+		//actionBar.hide();
 	}
 	
     public void about(View view) {
