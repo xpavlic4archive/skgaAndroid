@@ -3,6 +3,6 @@
     <item
         android:state_checked="true"
         android:drawable="@color/colorDarkCyan"/>
-
+    <item android:drawable="@drawable/bg_list"></item>
 
 </selector>
