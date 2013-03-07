@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:foo="http://schemas.android.com/apk/res/com.laurinka.skga.app"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     style="@style/LayoutView">
@@ -10,11 +11,12 @@
    	    style="@style/logo"
    	    />
     
-    <TextView
+    <com.laurinka.skga.app.TextViewPlus
         android:id="@+id/title"
         android:text="@string/title_editMyRecords"
         style="@style/Title"
-    />
+        foo:customFont="fonts/helvneue63medextobl.ttf">
+    </com.laurinka.skga.app.TextViewPlus>
 
     <ListView
         android:id="@android:id/list"

@@ -3,18 +3,14 @@ package com.laurinka.skga.app;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.laurinka.skga.app.storage.StorageHelper;
 
@@ -24,7 +20,6 @@ import com.laurinka.skga.app.storage.StorageHelper;
  * @author radimpavlicek
  * 
  */
-@SuppressLint("NewApi")
 public class EditActivity extends ListActivity {
 	private ArrayList<String> data;
 
@@ -38,16 +33,6 @@ public class EditActivity extends ListActivity {
 
 		/** Setting a custom layout for the list activity */
 		setContentView(R.layout.edit);
-		
-		/** Added typeFace for Intro buttons */
-		TextView myTitle=(TextView)findViewById(R.id.title);
-		
-		Typeface typeFace=Typeface.createFromAsset(getAssets(),"fonts/helvneue63medextobl.ttf");
-		myTitle.setTypeface(typeFace);
-		
-		/** Hide ActionBar in IntroActivity screen*/
-		ActionBar actionBar = getActionBar();
-		actionBar.hide();
 		
 		sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES,
 				MODE_PRIVATE);

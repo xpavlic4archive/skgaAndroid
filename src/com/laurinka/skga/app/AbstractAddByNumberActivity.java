@@ -1,6 +1,5 @@
 package com.laurinka.skga.app;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.widget.EditText;
  * @author radimpavlicek
  *
  */
-@SuppressLint("OnClick")
+
 public abstract class AbstractAddByNumberActivity extends Activity {
 	SharedPreferences sharedPreferences;
 

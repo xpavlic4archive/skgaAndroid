@@ -148,6 +148,7 @@
     
     <style name="CustomActivityTheme">
         <item name="android:windowBackground">@drawable/bg_gradient</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
     </style>
     
     <style name="LayoutView" parent="android:Theme">
@@ -164,6 +165,9 @@
 		<item name="android:cacheColorHint">@android:color/transparent</item>
 	</style>
 	
-
+	<!-- styling ActionBar -->
+	<style name="MyActionBar">
+	    <item name="android:height">0dp</item>
+	</style>
 
 </resources>

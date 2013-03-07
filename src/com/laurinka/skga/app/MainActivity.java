@@ -5,15 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
@@ -31,7 +27,7 @@ import com.laurinka.skga.app.storage.StorageHelper;
 /**
  * Holds list view and controller for adding new number and about activity.
  */
-@SuppressLint("NewApi")
+
 public class MainActivity extends ListActivity {
 
 	private SharedPreferences sharedPreferences;
@@ -42,16 +38,6 @@ public class MainActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		
-		/** Added typeFace for Intro buttons */
-		TextView myTitle=(TextView)findViewById(R.id.title);
-		
-		Typeface typeFace=Typeface.createFromAsset(getAssets(),"fonts/helvneue63medextobl.ttf");
-		myTitle.setTypeface(typeFace);
-		
-		/** Hide ActionBar in IntroActivity screen*/
-		ActionBar actionBar = getActionBar();
-		actionBar.hide();
 
 		sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES,
 				MODE_PRIVATE);
