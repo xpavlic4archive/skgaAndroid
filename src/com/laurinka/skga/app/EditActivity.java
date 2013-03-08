@@ -1,8 +1,5 @@
 package com.laurinka.skga.app;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,8 +8,11 @@ import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.laurinka.skga.app.storage.StorageHelper;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Backs edit screen.
@@ -21,7 +21,7 @@ import com.laurinka.skga.app.storage.StorageHelper;
  * 
  */
 public class EditActivity extends ListActivity {
-	private ArrayList<String> data;
+	private List<String> data;
 
 	private ArrayAdapter<String> adapter;
 	private SharedPreferences sharedPreferences;
@@ -33,7 +33,6 @@ public class EditActivity extends ListActivity {
 
 		/** Setting a custom layout for the list activity */
 		setContentView(R.layout.edit);
-		
 		sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES,
 				MODE_PRIVATE);
 		showList();
@@ -57,17 +56,30 @@ public class EditActivity extends ListActivity {
 
 	private void findData() {
 		List<String> numbers = StorageHelper.getSkgaNumbers(sharedPreferences);
+		String prefix = Constants.SKGA_NAME_PREFIX;
+		ArrayList<String> data = grapNamesByPrefix(numbers, prefix);
+		
+		List<String> cgf = StorageHelper.getCgfNumbers(sharedPreferences);
+		String prefixCgf = Constants.CGF_NAME_PREFIX;
+		ArrayList<String> data2 = grapNamesByPrefix(cgf, prefixCgf);
+		List<String> l = new LinkedList<String>();
+		l.addAll(data);
+		l.addAll(data2);
+		this.data = l;
+	}
 
+	private ArrayList<String> grapNamesByPrefix(List<String> numbers,
+			String prefix) {
 		ArrayList<String> data = new ArrayList<String>();
 		String[] numbersA = numbers.toArray(new String[0]);
 		for (int i = 0; i < numbers.size(); i++) {
 			String value = numbersA[i];
-			String name = sharedPreferences.getString(Constants.SKGA_NAME_PREFIX
+			String name = sharedPreferences.getString(prefix
 					+ value, "");
 			data.add(name);
 
 		}
-		this.data = data;
+		return data;
 	}
 
 	/**
