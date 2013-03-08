@@ -16,6 +16,7 @@
         android:id="@+id/hcp"
         android:text="@+id/hcp"
         android:gravity="right"
+        android:maxLines="1"
         android:layout_weight="1"
         style="@style/RowLayout.Hcp" >
     </TextView>

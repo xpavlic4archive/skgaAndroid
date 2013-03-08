@@ -27,25 +27,32 @@
         android:layout_marginTop="5dp"
         android:gravity="center_horizontal" >
 
-        <Button
+        <com.laurinka.skga.app.ButtonPlus
             android:id="@+id/by_skga_button"
             style="@style/Buttons.AddBy"
             android:onClick="byNumber"
-            android:text="@string/by_skga" />
+            android:text="@string/by_skga"
+            foo:customButtonFont="fonts/helvneue63medextobl.ttf">
+        </com.laurinka.skga.app.ButtonPlus>
 
-        <Button
+        <com.laurinka.skga.app.ButtonPlus
             android:id="@+id/by_cgf_button"
             android:layout_below="@id/by_skga_button"
             style="@style/Buttons.AddBy"
             android:onClick="byCgfNumber"
-            android:text="@string/by_cgf" />
+            android:text="@string/by_cgf"
+            foo:customButtonFont="fonts/helvneue63medextobl.ttf">
+        </com.laurinka.skga.app.ButtonPlus>
 
-        <Button
+        <com.laurinka.skga.app.ButtonPlus
             android:id="@+id/search_by_name_button"
             style="@style/Buttons.AddBy"
             android:layout_below="@id/by_cgf_button"
             android:onClick="search"
-            android:text="@string/search_by_name" />
+            android:text="@string/search_by_name"
+            foo:customButtonFont="fonts/helvneue63medextobl.ttf">
+        </com.laurinka.skga.app.ButtonPlus>
+        
     </RelativeLayout>
 
     <LinearLayout

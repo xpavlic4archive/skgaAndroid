@@ -51,6 +51,7 @@
 	    
 	    <Button
 	        android:onClick="close"
+	        android:text="@string/close_button"
 	        style="@style/Buttons.ActionBar.Main.EditList.Back" />
 	    
 	</LinearLayout>
