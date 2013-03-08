@@ -5,6 +5,7 @@
     <string name="edit_message">Číslo hráče</string>
     <string name="button_send">Přidat</string>
     <string name="hint_text">Přidat SKGA číslo. Např. 9811</string>
+    <string name="hint_text_cfg">Přidat CGF číslo. Např. 950806</string>
     <string name="add_button">Přidat</string>
     <string name="about_button">O nás</string>
     <string name="edit_button">Změnit</string>
@@ -27,7 +28,6 @@
     <string name="backRecords_button">Zpět na moje záznamy</string>
     <string name="choose_name">Zvol jméno hráče</string>
     <string name="back_to_search_button">Zpět na vyhledávání</string>
-    <string name="hr">Horizontal rule</string>
     <string name="searching">Hledám</string>
 	<string name="select_all_button">Vybrať všetko</string>
 </resources>

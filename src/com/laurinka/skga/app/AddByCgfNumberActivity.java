@@ -15,12 +15,14 @@ import com.laurinka.skga.app.storage.StorageHelper;
  * @author radimpavlicek
  *
  */
+
 public class AddByCgfNumberActivity extends AbstractAddByNumberActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);    
         setContentView(R.layout.add_cgf);
+		
     }
 
     public void saveNumber(View view) {

@@ -11,6 +11,7 @@ import android.widget.EditText;
  * @author radimpavlicek
  *
  */
+
 public abstract class AbstractAddByNumberActivity extends Activity {
 	SharedPreferences sharedPreferences;
 

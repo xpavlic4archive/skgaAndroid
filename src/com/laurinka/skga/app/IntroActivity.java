@@ -9,13 +9,16 @@ import android.view.View;
  * @author radimpavlicek
  *
  */
+
 public class IntroActivity extends Activity {
-	
+
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		/** Setting a custom layout for the list activity */
 		setContentView(R.layout.intro);
+
 	}
 	
     public void about(View view) {
