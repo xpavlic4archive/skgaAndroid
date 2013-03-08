@@ -34,6 +34,7 @@ public class MainActivity extends ListActivity {
 	private SharedPreferences sharedPreferences;
 	private ArrayList<HashMap<String, String>> data;
 	public SimpleAdapter adapter;
+	private UpdaterBroadcastReceiver r;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -131,9 +132,15 @@ public class MainActivity extends ListActivity {
 		// handles changes from async tasks
 		IntentFilter filter = new IntentFilter(
 				Constants.COM_LAURINKA_SKGA_APP_REFRESH);
-		UpdaterBroadcastReceiver r = new UpdaterBroadcastReceiver();
+		r = new UpdaterBroadcastReceiver();
 		registerReceiver(r, filter);
 		super.onResume();
+	}
+
+	@Override
+	protected void onStop() {
+		unregisterReceiver(r);
+		super.onStop();
 	}
 
 	@Override
