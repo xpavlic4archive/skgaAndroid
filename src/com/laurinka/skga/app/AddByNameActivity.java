@@ -26,6 +26,7 @@ import com.laurinka.skga.app.storage.StorageHelper;
 /**
  * Holds list view and controller for adding new number and about activity.
  */
+
 public class AddByNameActivity extends ListActivity {
 
 	private SharedPreferences sharedPreferences;
@@ -36,6 +37,7 @@ public class AddByNameActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_by_name_list);
+		
 		sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES,
 				MODE_PRIVATE);
 		Bundle extras = getIntent().getExtras();

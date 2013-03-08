@@ -1,41 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:foo="http://schemas.android.com/apk/res/com.laurinka.skga.app"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    style="@style/LayoutView">
     
-    <TextView
+    <ImageView
+   	    android:id="@+id/logo"
+   	    android:contentDescription="@string/app_name"
+   	    style="@style/logo"
+   	    />
+    
+     <com.laurinka.skga.app.TextViewPlus
         android:id="@+id/title"
-        android:text="@string/choose_name"
+        android:text="@string/search_by_name"
         style="@style/Title"
-    />
+		foo:customFont="fonts/helvneue63medextobl.ttf">
+     </com.laurinka.skga.app.TextViewPlus>
     
-    <ImageView 
-        android:id="@+id/title_bar_top"
-		style="@style/TitleBar"
-		android:layout_below="@+id/title"
-		android:contentDescription="@string/hr"
-		/>
 
 	<ListView
         android:id="@id/android:list"
-        android:layout_below="@id/title_bar_top"
-        android:layout_above="@+id/title_bar_bottom"
+        android:layout_below="@id/title"
+        android:layout_above="@+id/action_bar"
         style="@style/AddByNameList" />
 
-    <TextView
-        android:id="@id/android:empty"
-        android:layout_below="@id/title_bar_top"
-        android:layout_above="@+id/title_bar_bottom"
-        style="@style/no_names"
-        android:text="@string/no_names" />
-    
-    <ImageView 
-        android:id="@+id/title_bar_bottom"
-		style="@style/TitleBar"
-		android:layout_above="@+id/action_bar"
-		android:contentDescription="@string/hr"
-	/>
-    
     <LinearLayout
             android:id="@+id/action_bar"
             style="@style/action_bar">
@@ -44,7 +33,7 @@
             android:id="@+id/add_button"
             android:onClick="close"
             android:layout_width="0dp"
-            style="@style/Buttons.ActionBar"
+            style="@style/Buttons.ActionBar.Back"
             android:layout_weight="1"
             android:text="@string/back_to_search_button" />
 
