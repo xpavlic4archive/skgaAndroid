@@ -19,7 +19,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+    android:checkMark="@drawable/editlist_checkbox"
     android:paddingTop="8dp"
     android:paddingBottom="8dp"
     android:textSize="17sp"
@@ -29,6 +29,7 @@
     android:shadowRadius="1"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
+    android:textColorHighlight="@color/colorGray"
     android:textColor="@color/color_checkedtextview"
     android:background="@drawable/bg_checkedtextview"
 

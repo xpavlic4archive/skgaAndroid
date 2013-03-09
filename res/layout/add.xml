@@ -33,11 +33,14 @@
 		style="@style/AddByForm">
         
         <EditText android:id="@+id/edit_message"
-              android:layout_height="wrap_content"
-              android:hint="@string/edit_message"
-              android:layout_width="0dp"
-              android:layout_weight="1"
-              android:inputType="number"
+             android:layout_height="wrap_content"
+             android:hint="@string/edit_message"
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:inputType="number"
+             android:textColorHint="#899a38"
+             android:textColor="#393e24"
+             android:drawablePadding="@drawable/ico_add"
             />
    		<Button
             android:id="@+id/sendMessage"
