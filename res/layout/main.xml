@@ -30,12 +30,10 @@
     
 	<TextView
         android:id="@android:id/empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_above="@+id/action_bar"
         android:text="@string/no_names"
-        android:gravity="center_horizontal"
+        style="@style/no_names"
     />
         
      <LinearLayout
