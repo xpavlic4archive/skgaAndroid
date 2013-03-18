@@ -15,7 +15,7 @@
    	<com.laurinka.skga.app.TextViewPlus
         android:id="@+id/title"
         android:text="@string/title_myRecords"
-        style="@style/Title"
+        style="@style/Title.Large"
         foo:customFont="fonts/helvneue63medextobl.ttf">
     </com.laurinka.skga.app.TextViewPlus>
 
