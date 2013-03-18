@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:foo="http://schemas.android.com/apk/res/com.laurinka.skga.app"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    style="@style/LayoutView">
+    
+    <ImageView android:id="@+id/logo_app"
+            android:contentDescription="@string/app_name"
+            android:background="@drawable/logo_app"
+            style="@style/IntroLogoApp"
+			 />
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:gravity="center"
+	    android:layout_marginTop="100dp">
+	    
+        <com.laurinka.skga.app.ButtonPlus
+        		style="@style/Buttons.Intro.Large"
+                android:text="@string/records_button"
+                android:onClick="view"
+                android:id="@+id/records_button"
+                foo:customButtonFont="fonts/helvneue63medextobl.ttf"
+                android:layout_below="@id/logo_app">
+        </com.laurinka.skga.app.ButtonPlus>
+        
+        <com.laurinka.skga.app.ButtonPlus
+        		style="@style/Buttons.Intro.Large"
+                android:text="@string/about_button"
+                android:onClick="about"
+                android:id="@+id/about_button"
+                android:layout_below="@id/records_button"
+                foo:customButtonFont="fonts/helvneue63medextobl.ttf">
+        </com.laurinka.skga.app.ButtonPlus>
+        
+        <com.laurinka.skga.app.ButtonPlus
+        		style="@style/Buttons.Intro.Large"
+                android:text="@string/exit_button"
+                android:onClick="close"
+                android:id="@+id/exit_button"
+                android:layout_below="@id/about_button"
+                foo:customButtonFont="fonts/helvneue63medextobl.ttf">
+        </com.laurinka.skga.app.ButtonPlus>
+        
+     </RelativeLayout>
+
+        
+</RelativeLayout>
