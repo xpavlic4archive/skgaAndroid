@@ -10,16 +10,17 @@
     <ImageView android:id="@+id/logo_app"
             android:contentDescription="@string/app_name"
             android:background="@drawable/logo_app"
-            style="@style/IntroLogoApp"
+            style="@style/IntroLogoApp.Small"
 			 />
 	<RelativeLayout 
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:gravity="center"
+	    android:layout_alignParentBottom="true"
 	    android:layout_marginTop="100dp">
 	    
         <com.laurinka.skga.app.ButtonPlus
-        		style="@style/Buttons.Intro.Large"
+        		style="@style/Buttons.Intro.Small"
                 android:text="@string/records_button"
                 android:onClick="view"
                 android:id="@+id/records_button"
@@ -28,7 +29,7 @@
         </com.laurinka.skga.app.ButtonPlus>
         
         <com.laurinka.skga.app.ButtonPlus
-        		style="@style/Buttons.Intro.Large"
+        		style="@style/Buttons.Intro"
                 android:text="@string/about_button"
                 android:onClick="about"
                 android:id="@+id/about_button"
@@ -37,7 +38,7 @@
         </com.laurinka.skga.app.ButtonPlus>
         
         <com.laurinka.skga.app.ButtonPlus
-        		style="@style/Buttons.Intro.Large"
+        		style="@style/Buttons.Intro"
                 android:text="@string/exit_button"
                 android:onClick="close"
                 android:id="@+id/exit_button"

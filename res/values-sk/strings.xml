@@ -21,13 +21,11 @@
     <string name="edit_search">Meno hráča</string>
     <string name="records_button">Zoznamy</string>
     <string name="exit_button">Koniec</string>
-    <string name="back_to_menu_button">Späť do menu</string>
     <string name="title_myRecords">Moje zoznamy</string>
     <string name="title_editMyRecords">Meniť moje zoznamy</string>
     <string name="title_addRecord">Pridať záznam</string>
     <string name="backRecords_button">Spät na moje zoznamy</string>
-    <string name="choose_name">Zvoľ meno</string>
     <string name="back_to_search_button">Späť na hľadaj</string>
 	<string name="searching">Hľadám</string>
-	<string name="select_all_button">Vybrat vše</string>
+	<string name="select_all_button">Vybrať všetko</string>
 </resources>
