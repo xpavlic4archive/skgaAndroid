@@ -24,6 +24,7 @@
     <string name="title_myRecords">My records</string>
     <string name="title_editMyRecords">Edit my records</string>
     <string name="title_addRecord">Add a record</string>
+    <string name="title_aboutApp">About CShandicap</string>
     <string name="backRecords_button">Back to my records</string>
     <string name="back_to_search_button">Back to Search</string>
     <string name="searching">Searching</string>
