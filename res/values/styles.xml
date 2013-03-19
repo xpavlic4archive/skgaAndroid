@@ -214,6 +214,9 @@
      <style name="Buttons.Intro.Small">
          <item name="android:layout_marginTop">60dp</item>
      </style>
+     <style name="action_bar.small">
+         <item name="android:textSize">15sp</item>
+     </style>
 
 
 </resources>

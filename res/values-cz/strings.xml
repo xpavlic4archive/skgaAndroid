@@ -24,6 +24,7 @@
     <string name="title_myRecords">Moje záznamy</string>
     <string name="title_editMyRecords">Změnit moje záznamy</string>
     <string name="title_addRecord">Přidat záznam</string>
+    <string name="title_aboutApp">O ČShandicap</string>
     <string name="backRecords_button">Zpět na moje záznamy</string>
     <string name="back_to_search_button">Zpět na vyhledávání</string>
     <string name="searching">Hledám</string>

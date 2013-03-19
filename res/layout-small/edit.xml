@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:foo="http://schemas.android.com/apk/res/com.laurinka.skga.app"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/LayoutView">
+    
+    <ImageView
+   	    android:id="@+id/logo"
+   	    android:contentDescription="@string/app_name"
+   	    style="@style/logo"
+   	    />
+    
+    <com.laurinka.skga.app.TextViewPlus
+        android:id="@+id/title"
+        android:text="@string/title_editMyRecords"
+        style="@style/Title"
+        foo:customFont="fonts/helvneue63medextobl.ttf">
+    </com.laurinka.skga.app.TextViewPlus>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_below="@id/title"
+        android:layout_above="@+id/action_bar"
+        android:choiceMode="multipleChoice"
+        style="@style/MainList" >
+    </ListView>
+
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_below="@id/title"
+        android:layout_above="@+id/action_bar"
+		style="@style/no_names"
+        android:text="@string/no_names" />
+        
+    <LinearLayout
+            android:id="@+id/action_bar"
+            style="@style/action_bar.small">
+    
+	    <Button
+	        android:id="@+id/select_all_button"
+	        android:onClick="invert"
+	        android:text="@string/select_all_button"
+	        style="@style/Buttons.ActionBar.Main.EditList" />
+	    
+	    <Button
+	        android:id="@+id/delete_button"
+	        android:onClick="delete"
+	        android:text="@string/delete_button"
+	        style="@style/Buttons.ActionBar.Main.EditList.DeleteSelected" />
+	    
+	    <Button
+	        android:onClick="close"
+	        android:text="@string/close_button"
+	        style="@style/Buttons.ActionBar.Main.EditList.Back" />
+	    
+	</LinearLayout>
+</RelativeLayout>

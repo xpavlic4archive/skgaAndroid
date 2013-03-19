@@ -1,52 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:foo="http://schemas.android.com/apk/res/com.laurinka.skga.app"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="5dp"
-    android:stretchColumns="*"
     tools:context=".AboutActivity"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     style="@style/LayoutView" >
+    
+    <ImageView
+   	    android:id="@+id/logo"
+   	    android:contentDescription="@string/app_name"
+   	    style="@style/logo"
+   	    />
+    
+    <com.laurinka.skga.app.TextViewPlus
+        android:id="@+id/title"
+        android:text="@string/title_aboutApp"
+        style="@style/Title"
+        foo:customFont="fonts/helvneue63medextobl.ttf">
+    </com.laurinka.skga.app.TextViewPlus>
 
-    <TableRow>
-
+	<LinearLayout
+	    android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/title">
+        
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center"
+            android:id="@+id/logo_laurinka"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/logo"
-            android:src="@drawable/laurinka" />
+            android:src="@drawable/laurinka"
+ />
 
         <TextView
             android:id="@+id/info_text"
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textIsSelectable="true" />
-    </TableRow>
+            android:layout_gravity="right"
+            android:textIsSelectable="true"
+            android:textColor="#393e24"/>
+        
+  	</LinearLayout>
+  	
+	<TextView            
+		    android:id="@+id/legal_text"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:textColor="#393e24"
+		    android:textSize="16sp"
+		    android:textStyle="italic"
+		    android:textIsSelectable="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+		    android:layout_above="@+id/action_bar"
+     		/>
 
-    <TableRow>
+    <LinearLayout
+            android:id="@+id/action_bar"
+            style="@style/action_bar">
+    
+	    <Button
+	        android:onClick="close"
+	        android:text="@string/close_button"
+	        style="@style/Buttons.ActionBar.Main.Back"/>
+	 </LinearLayout>
 
-        <TextView            
-            android:id="@+id/legal_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dip"
-            android:layout_span="2"
-            android:textColor="#cccccc"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            android:textIsSelectable="true" 
-             />
-    </TableRow>
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:onClick="close"
-        android:text="@string/close_button"
-        style="@style/Buttons" />
-
-</TableLayout>
+</RelativeLayout>
