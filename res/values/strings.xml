@@ -11,7 +11,7 @@
     <string name="logo">Laurinka.com</string>
     <string name="edit_button">Edit</string>
     <string name="close_button">Back</string>
-    <string name="delete_button">Delete selected</string>
+    <string name="delete_button">Delete selec.</string>
     <string name="by_skga">Search by SKGA players number</string>
     <string name="by_cgf">Search by CGF players number</string>
     <string name="no_names">No names.</string>

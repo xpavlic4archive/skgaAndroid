@@ -18,21 +18,24 @@
         android:id="@+id/title"
         android:text="@string/title_aboutApp"
         style="@style/Title"
+        android:singleLine="true"
+        android:ellipsize="end"
         foo:customFont="fonts/helvneue63medextobl.ttf">
     </com.laurinka.skga.app.TextViewPlus>
 
 	<LinearLayout
+	    android:id="@+id/twoColumns"
 	    android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="8dp"
         android:layout_below="@+id/title">
         
         <ImageView
             android:id="@+id/logo_laurinka"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.3"
             android:layout_gravity="left"
             android:layout_height="wrap_content"
             android:contentDescription="@string/logo"
@@ -42,10 +45,12 @@
         <TextView
             android:id="@+id/info_text"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.7"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:textIsSelectable="true"
+            android:layout_marginLeft="8dp"
+            android:textSize="17sp"
             android:textColor="#393e24"/>
         
   	</LinearLayout>
@@ -55,12 +60,13 @@
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:textColor="#393e24"
-		    android:textSize="16sp"
+		    android:textSize="17sp"
 		    android:textStyle="italic"
 		    android:textIsSelectable="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
+		    android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+		    android:layout_below="@+id/twoColumns"
 		    android:layout_above="@+id/action_bar"
      		/>
 
