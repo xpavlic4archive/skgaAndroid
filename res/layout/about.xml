@@ -35,7 +35,7 @@
         <ImageView
             android:id="@+id/logo_laurinka"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.3"
             android:layout_gravity="left"
             android:layout_height="wrap_content"
             android:contentDescription="@string/logo"
@@ -45,10 +45,12 @@
         <TextView
             android:id="@+id/info_text"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.7"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:textIsSelectable="true"
+            android:layout_marginLeft="8dp"
+            android:textSize="17sp"
             android:textColor="#393e24"/>
         
   	</LinearLayout>
@@ -58,7 +60,7 @@
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:textColor="#393e24"
-		    android:textSize="16sp"
+		    android:textSize="17sp"
 		    android:textStyle="italic"
 		    android:textIsSelectable="true"
 		    android:layout_marginTop="10dp"
