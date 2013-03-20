@@ -1,5 +1,4 @@
-<h3>SKGA App</h3>
-Version 1.0<br>
-Copyright 2012<br>
-<b>www.laurinka.com</b><br>
-skga@laurinka.com
+skga@laurinka.com<br><br>
+design:<br>
+david@serviciografico.com<br><br>
+All rights reserved.
