@@ -44,10 +44,11 @@ public class MainActivity extends ListActivity {
 		sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES,
 				MODE_PRIVATE);
 		List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
-		if (numbers.isEmpty()) {
-			Intent intent = new Intent(this, AddByActivity.class);
-			startActivity(intent);
-		}
+		//do not start addByActivity, as it is misleading
+//		if (numbers.isEmpty()) {
+//			Intent intent = new Intent(this, AddByActivity.class);
+//			startActivity(intent);
+//		}
 
 		showList();
 		updateAll();
