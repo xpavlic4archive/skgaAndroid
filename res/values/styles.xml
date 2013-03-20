@@ -112,8 +112,8 @@
     <style name="IntroLogoApp">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">50sp</item>
-        <item name="android:layout_marginBottom">50sp</item>
+        <item name="android:layout_marginTop">25sp</item>
+        <item name="android:layout_marginBottom">25sp</item>
         <item name="android:gravity">center_horizontal</item>
     </style>
 
@@ -131,9 +131,11 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingLeft">10dp</item>
         <item name="android:paddingRight">10dp</item>
+        <item name="android:textIsSelectable">false</item>
     </style>
     <style name="RowLayout.Hcp">
         <item name="android:textStyle">bold</item>
+        <item name="android:textIsSelectable">false</item>
     </style>
     <style name="hint">
         <item name="android:layout_width">fill_parent</item>
@@ -190,7 +192,7 @@
 	
 	<!-- styling ActionBar -->
 	<style name="MyActionBar">
-	    <item name="android:height">0dp</item>
+	    
 	</style>
 	
 	
@@ -215,10 +217,6 @@
      </style>
      <style name="action_bar.small">
         <item name="android:textSize">15sp</item>
-        <item name="android:layout_marginLeft">10dp</item>
-		<item name="android:layout_marginRight">10dp</item>
-        <item name="android:layout_marginTop">6dp</item>
-        <item name="android:layout_marginBottom">6dp</item>
      </style>
 
 
