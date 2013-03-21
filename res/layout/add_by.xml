@@ -49,7 +49,16 @@
             style="@style/Buttons.AddBy"
             android:layout_below="@id/by_cgf_button"
             android:onClick="search"
-            android:text="@string/search_by_name"
+            android:text="@string/search_by_name_skga"
+            foo:customButtonFont="fonts/helvneue63medextobl.ttf">
+        </com.laurinka.skga.app.ButtonPlus>
+        
+         <com.laurinka.skga.app.ButtonPlus
+            android:id="@+id/search_by_name_button_cgf"
+            style="@style/Buttons.AddBy"
+            android:layout_below="@id/search_by_name_button"
+            android:onClick="searchCgf"
+            android:text="@string/search_by_name_cgf"
             foo:customButtonFont="fonts/helvneue63medextobl.ttf">
         </com.laurinka.skga.app.ButtonPlus>
         

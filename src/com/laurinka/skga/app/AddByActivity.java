@@ -31,7 +31,17 @@ public class AddByActivity extends Activity {
 	}
 
 	public void search(View view) {
-		startActivity(new Intent(this, SearchActivity.class));
+		Intent i  = new Intent(this, SearchActivity.class);
+		i.putExtra("type", "skga");
+		startActivity(i);
+		
+		finish();
+	}
+	public void searchCgf(View view) {
+		Intent i  = new Intent(this, SearchActivity.class);
+		i.putExtra("type", "cgf");
+		startActivity(i);
+		
 		finish();
 	}
 

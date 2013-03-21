@@ -16,6 +16,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 
+import com.laurinka.skga.app.MainActivity.ShowClub;
+import com.laurinka.skga.app.rest.CgfService;
 import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.NameNumber;
 import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
@@ -32,17 +34,18 @@ public class AddByNameActivity extends ListActivity {
 	private SharedPreferences sharedPreferences;
 	public SimpleAdapter adapter;
 	private String pattern;
+	private String type;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_by_name_list);
-		
+
 		sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES,
 				MODE_PRIVATE);
 		Bundle extras = getIntent().getExtras();
 		pattern = extras.getString(Constants.PATTERN);
-
+		type = extras.getString("type");
 		fillData();
 	}
 
@@ -65,78 +68,142 @@ public class AddByNameActivity extends ListActivity {
 		root.addView(progressBar);
 
 		@SuppressWarnings("unchecked")
-		HashMap<String, String> s = (HashMap<String, String>) getListAdapter().getItem(position);
+		HashMap<String, String> s = (HashMap<String, String>) getListAdapter()
+				.getItem(position);
 		final String message = s.get(Constants.HCP);
-		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
-			public void onResponse(Hcp response) {
-				Log.i(this.getClass().toString(), response.toString());
-				sharedPreferences
-						.edit()
-						//
-						.putString(Constants.SKGA_HCP_PREFIX + message,
-								response.getHcp()) //
-						.putString(Constants.SKGA_CLUB_PREFIX + message,
-								response.getClub()) //
-						.putString(Constants.SKGA_NAME_PREFIX + message,
-								response.getName()) //
-						.commit();
-				StorageHelper.addSkgaNumber(sharedPreferences, message);
-				sendBroadcast(new Intent(
-						Constants.COM_LAURINKA_SKGA_APP_REFRESH));
-			}
+		if (type.equals("skga")) {
+			new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
+				public void onResponse(Hcp response) {
+					Log.i(this.getClass().toString(), response.toString());
+					sharedPreferences
+							.edit()
+							//
+							.putString(Constants.SKGA_HCP_PREFIX + message,
+									response.getHcp()) //
+							.putString(Constants.SKGA_CLUB_PREFIX + message,
+									response.getClub()) //
+							.putString(Constants.SKGA_NAME_PREFIX + message,
+									response.getName()) //
+							.commit();
+					StorageHelper.addSkgaNumber(sharedPreferences, message);
+					sendBroadcast(new Intent(
+							Constants.COM_LAURINKA_SKGA_APP_REFRESH));
+				}
 
-			public void onError(Integer errorCode, String errorMessage) {
-				Log.w(this.getClass().toString(), errorCode + " "
-						+ errorMessage);
-			}
+				public void onError(Integer errorCode, String errorMessage) {
+					Log.w(this.getClass().toString(), errorCode + " "
+							+ errorMessage);
+				}
 
-		});
-		//go to the main screen clearing off the stack of already resumed activities
+			});
+		} else {
+			new CgfService().queryHcp(message, new OnSKGAHcpResponse() {
+
+				public void onResponse(Hcp response) {
+					Log.i(this.getClass().toString(), response.toString());
+					sharedPreferences
+							.edit()
+							//
+							.putString(Constants.CGF_HCP_PREFIX + message,
+									response.getHcp()) //
+							.putString(Constants.CGF_CLUB_PREFIX + message,
+									response.getClub()) //
+							.putString(Constants.CGF_NAME_PREFIX + message,
+									response.getName()) //
+							.commit();
+					StorageHelper.addCgfNumber(sharedPreferences, message);
+					sendBroadcast(new Intent(
+							Constants.COM_LAURINKA_SKGA_APP_REFRESH));
+				}
+
+				public void onError(Integer errorCode, String errorMessage) {
+					Log.w(this.getClass().toString(), errorCode + " "
+							+ errorMessage);
+				}
+
+			});
+		}
+		// go to the main screen clearing off the stack of already resumed
+		// activities
 		Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);
 	}
 
 	private void fillData() {
-		 ProgressDialog prog;
-		    prog = new ProgressDialog(this);
-		    prog.setIndeterminate(false);
-		    prog.setMessage(getString(R.string.searching));
-		    prog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		    prog.show();
-		
-		 search(prog);
-		
+		ProgressDialog prog;
+		prog = new ProgressDialog(this);
+		prog.setIndeterminate(false);
+		prog.setMessage(getString(R.string.searching));
+		prog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+		prog.show();
+
+		search(prog);
+
 	}
 
 	private void search(final ProgressDialog d) {
-		new SkgaService().searchLike(pattern, new OnSKGASearchResponse() {
-			public void onResponse(List<NameNumber> response) {
-				Log.i(this.getClass().toString(), response.toString());
+		List<String> skgaNmbrs = StorageHelper
+				.getSkgaNumbers(sharedPreferences);
+		if ("skga".equals(type)) {
+			new SkgaService().searchLike(pattern, new OnSKGASearchResponse() {
+				public void onResponse(List<NameNumber> response) {
+					Log.i(this.getClass().toString(), response.toString());
 
-				List<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
+					List<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
 
-				for (NameNumber o : response) {
-					HashMap<String, String> map = new HashMap<String, String>();
-					map.put(Constants.NAME, o.getName());
-					map.put(Constants.HCP, o.getNumber());
-					data.add(map);
+					for (NameNumber o : response) {
+						HashMap<String, String> map = new HashMap<String, String>();
+						map.put(Constants.NAME, o.getName());
+						map.put(Constants.HCP, o.getNumber());
+						data.add(map);
+					}
+
+					d.dismiss();
+					SimpleAdapter adapter = new SimpleAdapter(
+							AddByNameActivity.this, data, R.layout.rowlayout,
+							new String[] { Constants.NAME, Constants.HCP },
+							new int[] { R.id.name, R.id.hcp });
+					setListAdapter(adapter);
 				}
 
-				d.dismiss();
-				SimpleAdapter adapter = new SimpleAdapter(
-						AddByNameActivity.this, data, R.layout.rowlayout,
-						new String[] { Constants.NAME , Constants.HCP},
-						new int[] { R.id.name , R.id.hcp});
-				setListAdapter(adapter);
-			}
+				public void onError(Integer errorCode, String errorMessage) {
+					d.dismiss();
+					Log.w(this.getClass().toString(), errorCode + " "
+							+ errorMessage);
+				}
 
-			public void onError(Integer errorCode, String errorMessage) {
-				d.dismiss();
-				Log.w(this.getClass().toString(), errorCode + " "
-						+ errorMessage);
-			}
+			});
+		} else {
+			new CgfService().searchLike(pattern, new OnSKGASearchResponse() {
+				public void onResponse(List<NameNumber> response) {
+					Log.i(this.getClass().toString(), response.toString());
 
-		});
+					List<HashMap<String, String>> data = new ArrayList<HashMap<String, String>>();
+
+					for (NameNumber o : response) {
+						HashMap<String, String> map = new HashMap<String, String>();
+						map.put(Constants.NAME, o.getName());
+						map.put(Constants.HCP, o.getNumber());
+						data.add(map);
+					}
+
+					d.dismiss();
+					SimpleAdapter adapter = new SimpleAdapter(
+							AddByNameActivity.this, data, R.layout.rowlayout,
+							new String[] { Constants.NAME, Constants.HCP },
+							new int[] { R.id.name, R.id.hcp });
+					setListAdapter(adapter);
+				}
+
+				public void onError(Integer errorCode, String errorMessage) {
+					d.dismiss();
+					Log.w(this.getClass().toString(), errorCode + " "
+							+ errorMessage);
+				}
+
+			});
+
+		}
 	}
 }

@@ -14,10 +14,14 @@ import android.widget.EditText;
  */
 public class SearchActivity extends Activity {
 
+	private String type;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search);
+		Bundle extras = getIntent().getExtras();
+		type = extras.getString("type");
 
 	}
 
@@ -42,6 +46,7 @@ public class SearchActivity extends Activity {
 		}
 		Intent i  = new Intent(this, AddByNameActivity.class);
 		i.putExtra("pattern", message);
+		i.putExtra("type", type);
 		startActivity(i);
 	}
 

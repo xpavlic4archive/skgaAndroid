@@ -18,19 +18,11 @@ public class CgfService extends RestClient {
 			return;
 		super.execute("cgf/" + member, new OnHcpRestResponse(onRestResponseponse));
 	}
-	public static void main(String[] args) {
-		CgfService svc = new CgfService();
-		svc.queryHcp("950806", new OnSKGAHcpResponse() {
-			@Override
-			public void onResponse(Hcp hcp) {
-				System.out.println(hcp);
-			}
-
-			@Override
-			public void onError(Integer errorCode, String errorMessage) {
-				throw new IllegalStateException();
-			}
-		});
+	public void searchLike(String what,
+			final OnSKGASearchResponse onRestResponseponse) {
+		if (null == what || "".equals(what))
+			return;
+		super.execute("cgfs/search?q=" + what,
+				new OnSearchResponse(onRestResponseponse));
 	}
-
 }

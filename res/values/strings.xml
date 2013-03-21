@@ -16,6 +16,8 @@
     <string name="by_cgf">Search by CGF players number</string>
     <string name="no_names">No names.</string>
     <string name="search_by_name">Search by name of player</string>
+    <string name="search_by_name_cgf">Search by name of CGF player</string>
+      <string name="search_by_name_skga">Search by name of SKGA player</string>
     <string name="search_hint_text">Enter beginning of player\'s name. E.g. Marek</string>
     <string name="button_search">Search</string>
     <string name="edit_search">Player\'s name</string>
