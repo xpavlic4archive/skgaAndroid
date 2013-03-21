@@ -29,4 +29,6 @@
     <string name="back_to_search_button">Späť na hľadaj</string>
 	<string name="searching">Hľadám</string>
 	<string name="select_all_button">Vybrať všetko</string>
+	<string name="min_2_characters">Hľadám od dvoch znakov</string>
+	
 </resources>

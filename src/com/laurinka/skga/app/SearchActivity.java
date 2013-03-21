@@ -27,7 +27,7 @@ public class SearchActivity extends Activity {
 	
 	public void startSearch(View view) {
 		final String message = findSearchPattern();
-		if (null == message|| message.length() < 3) {
+		if (null == message|| message.length() < 2) {
 			AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 			alertDialog.setMessage(getString(R.string.min_2_characters));
 			alertDialog.setPositiveButton(R.string.back_to_search_button, new DialogInterface.OnClickListener() {
