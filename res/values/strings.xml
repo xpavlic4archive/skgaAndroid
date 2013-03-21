@@ -29,4 +29,5 @@
     <string name="back_to_search_button">Back to Search</string>
     <string name="searching">Searching</string>
     <string name="select_all_button">Select all</string>
+    <string name="min_2_characters">Type at least 2 characters</string>
 </resources>
