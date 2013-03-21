@@ -24,6 +24,9 @@ public final class OnHcpRestResponse implements OnRestResponse {
 
 		NodeList name = document.getElementsByTagName("name");
 		Node nameItem = name.item(0);
+		if (null == nameItem) {
+			return;
+		}
 		String txtName = nameItem.getChildNodes().item(0)
 				.getNodeValue();
 
