@@ -1,42 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:foo="http://schemas.android.com/apk/res/com.laurinka.skga.app"
+    style="@style/LayoutView"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    style="@style/LayoutView">
-    
-    <ImageView
-   	    android:id="@+id/logo"
-   	    android:contentDescription="@string/app_name"
-   	    style="@style/logo"
-   	    />
-    
-     <com.laurinka.skga.app.TextViewPlus
-        android:id="@+id/title"
-        android:text="@string/search_by_name"
-        style="@style/Title"
-		foo:customFont="fonts/helvneue63medextobl.ttf">
-     </com.laurinka.skga.app.TextViewPlus>
-    
+    android:layout_height="fill_parent" >
 
-	<ListView
+    <ImageView
+        android:id="@+id/logo"
+        style="@style/logo"
+        android:contentDescription="@string/app_name" />
+
+    <com.laurinka.skga.app.TextViewPlus
+        android:id="@+id/title"
+        style="@style/Title"
+        android:text="@string/search_by_name"
+        foo:customFont="fonts/helvneue63medextobl.ttf" >
+    </com.laurinka.skga.app.TextViewPlus>
+
+    <ListView
         android:id="@id/android:list"
-        android:layout_below="@id/title"
+        style="@style/AddByNameList"
         android:layout_above="@+id/action_bar"
-        style="@style/AddByNameList" />
+        android:layout_below="@id/title" />
+
+    <TextView
+        android:id="@android:id/empty"
+        style="@style/no_names"
+        android:layout_above="@+id/action_bar"
+        android:layout_below="@id/title"
+        android:text="@string/no_names" />
 
     <LinearLayout
-            android:id="@+id/action_bar"
-            style="@style/action_bar">
+        android:id="@+id/action_bar"
+        style="@style/action_bar" >
 
         <Button
             android:id="@+id/add_button"
-            android:onClick="close"
-            android:layout_width="0dp"
             style="@style/Buttons.ActionBar.Back"
+            android:layout_width="0dp"
             android:layout_weight="1"
+            android:onClick="close"
             android:text="@string/back_to_search_button" />
-
     </LinearLayout>
 
 </RelativeLayout>
