@@ -1,6 +1,8 @@
 package com.laurinka.skga.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +27,19 @@ public class SearchActivity extends Activity {
 	
 	public void startSearch(View view) {
 		final String message = findSearchPattern();
+		if (null == message|| message.length() < 3) {
+			AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+			alertDialog.setMessage(getString(R.string.min_2_characters));
+			alertDialog.setPositiveButton(R.string.back_to_search_button, new DialogInterface.OnClickListener() {
+	               @Override
+	               public void onClick(DialogInterface dialog, int id) {
+	                  dialog.dismiss();
+	               }
+	           });
+
+			alertDialog.show();
+			return;
+		}
 		Intent i  = new Intent(this, AddByNameActivity.class);
 		i.putExtra("pattern", message);
 		startActivity(i);
