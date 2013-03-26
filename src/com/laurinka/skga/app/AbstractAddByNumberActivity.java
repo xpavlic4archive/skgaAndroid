@@ -27,7 +27,7 @@ public abstract class AbstractAddByNumberActivity extends Activity {
 		finish();
 	}
 	
-	abstract void saveNumber(View view);
+	public abstract void saveNumber(View view);
 
 	protected String findNumber() {
 		EditText editText = findEditText();
