@@ -31,4 +31,5 @@
     <string name="back_to_search_button">Zpět na vyhledávání</string>
     <string name="searching">Hledám</string>
 	<string name="select_all_button">Vybrat vše</string>
+	<string name="min_2_characters">Vyhledávám jméno od dvou znaků</string>
 </resources>
