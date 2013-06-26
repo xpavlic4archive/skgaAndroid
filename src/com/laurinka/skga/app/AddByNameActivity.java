@@ -16,7 +16,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 
-import com.laurinka.skga.app.MainActivity.ShowClub;
 import com.laurinka.skga.app.rest.CgfService;
 import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.NameNumber;
