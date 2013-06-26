@@ -31,7 +31,7 @@ public class SearchActivity extends Activity {
 	
 	public void startSearch(View view) {
 		String message = findSearchPattern();
-        message = message.replaceAll("\\n", "");
+        message = message.replace("\n", "").replace("\r", "");
 		if (null == message|| message.length() < 2) {
 			AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 			alertDialog.setMessage(getString(R.string.min_2_characters));
