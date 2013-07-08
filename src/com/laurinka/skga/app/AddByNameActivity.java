@@ -134,7 +134,6 @@ public class AddByNameActivity extends ListActivity {
 		prog = new ProgressDialog(this);
 		prog.setIndeterminate(false);
 		prog.setMessage(getString(R.string.searching));
-		prog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		prog.show();
 
 		search(prog);
