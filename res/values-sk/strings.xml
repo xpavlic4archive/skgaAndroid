@@ -12,12 +12,12 @@
     <string name="close_button">Späť</string>
     <string name="delete_button">Zmazať ozn.</string>
     <string name="logo">Laurinka.com</string>
-    <string name="by_skga">Podľa SKGA čísla hráča</string>
-    <string name="by_cgf">Podľa CGF čísla hráča</string>
+    <string name="by_skga">Podľa SKGA čísla</string>
+    <string name="by_cgf">Podľa CGF čísla</string>
     <string name="no_names">Žiadne mená.</string>
-    <string name="search_by_name">Hľadať podľa mena hráča</string>
-    <string name="search_by_name_cgf">Hľadať podľa mena CGF hráča</string>
-    <string name="search_by_name_skga">Hľadať podľa mena SKGA hráča</string>
+    <string name="search_by_name">Podľa mena hráča</string>
+    <string name="search_by_name_cgf">Podľa mena CGF hráča</string>
+    <string name="search_by_name_skga">Podľa mena SKGA hráča</string>
     <string name="search_hint_text">Zadejte začiatok mena hráča. Napr. Marek</string>
     <string name="button_search">Hladať</string>
     <string name="edit_search">Meno hráča</string>

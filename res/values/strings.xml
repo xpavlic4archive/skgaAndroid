@@ -12,12 +12,12 @@
     <string name="edit_button">Edit</string>
     <string name="close_button">Back</string>
     <string name="delete_button">Delete selec.</string>
-    <string name="by_skga">Search by SKGA players number</string>
-    <string name="by_cgf">Search by CGF players number</string>
+    <string name="by_skga">By SKGA players number</string>
+    <string name="by_cgf">By CGF players number</string>
     <string name="no_names">No names.</string>
-    <string name="search_by_name">Search by name of player</string>
-    <string name="search_by_name_cgf">Search by name of CGF player</string>
-      <string name="search_by_name_skga">Search by name of SKGA player</string>
+    <string name="search_by_name">By name of player</string>
+    <string name="search_by_name_cgf">By name of CGF player</string>
+      <string name="search_by_name_skga">By name of SKGA player</string>
     <string name="search_hint_text">Enter beginning of player\'s name. E.g. Marek</string>
     <string name="button_search">Search</string>
     <string name="edit_search">Player\'s name</string>
