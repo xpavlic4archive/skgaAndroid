@@ -1,7 +1,7 @@
 package com.laurinka.skga.app.rest;
 
 
-
+import android.text.TextUtils;
 
 /**
  * Webservice for querying SKGA handicap, name of player and club.
@@ -22,7 +22,7 @@ public class CgfService extends RestClient {
 			final OnSKGASearchResponse onRestResponseponse) {
 		if (null == what || "".equals(what))
 			return;
-		super.execute("cgfs/search?q=" + what,
+		super.execute("cgfs/search?q=" + TextUtils.htmlEncode(what),
 				new OnSearchResponse(onRestResponseponse));
 	}
 }
