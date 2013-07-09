@@ -1,7 +1,8 @@
 package com.laurinka.skga.app.rest;
 
 
-import android.text.TextUtils;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 /**
  * Webservice for querying SKGA handicap, name of player and club.
@@ -19,10 +20,10 @@ public class CgfService extends RestClient {
 		super.execute("cgf/" + member, new OnHcpRestResponse(onRestResponseponse));
 	}
 	public void searchLike(String what,
-			final OnSKGASearchResponse onRestResponseponse) {
+			final OnSKGASearchResponse onRestResponseponse) throws UnsupportedEncodingException {
 		if (null == what || "".equals(what))
 			return;
-		super.execute("cgfs/search?q=" + TextUtils.htmlEncode(what),
+		super.execute("cgfs/search?q=" + URLEncoder.encode(what, "utf-8"),
 				new OnSearchResponse(onRestResponseponse));
 	}
 }

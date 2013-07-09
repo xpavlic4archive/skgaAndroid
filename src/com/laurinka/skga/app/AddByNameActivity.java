@@ -1,5 +1,6 @@
 package com.laurinka.skga.app;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -136,11 +137,16 @@ public class AddByNameActivity extends ListActivity {
 		prog.setMessage(getString(R.string.searching));
 		prog.show();
 
-		search(prog);
+		try {
+			search(prog);
+		} catch (UnsupportedEncodingException e) {
+			Log.i(this.getClass().toString(), e.toString());
+			prog.dismiss();
+		}
 
 	}
 
-	private void search(final ProgressDialog d) {
+	private void search(final ProgressDialog d) throws UnsupportedEncodingException {
 		List<String> skgaNmbrs = StorageHelper
 				.getSkgaNumbers(sharedPreferences);
 		if ("skga".equals(type)) {
