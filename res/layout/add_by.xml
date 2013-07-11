@@ -13,12 +13,12 @@
    	    style="@style/logo"
    	    />
 
-    <com.laurinka.skga.app.TextViewPlus
+    <com.laurinka.skga.app.ui.TextViewPlus
         android:id="@+id/title"
         style="@style/Title"
         android:text="@string/title_addRecord"
         foo:customFont="fonts/helvneue63medextobl.ttf">
-    </com.laurinka.skga.app.TextViewPlus>
+  </com.laurinka.skga.app.ui.TextViewPlus>
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -27,40 +27,40 @@
         android:layout_marginTop="5dp"
         android:gravity="center_horizontal" >
 
-        <com.laurinka.skga.app.ButtonPlus
+      <com.laurinka.skga.app.ui.ButtonPlus
             android:id="@+id/by_skga_button"
             style="@style/Buttons.AddBy"
             android:onClick="byNumber"
             android:text="@string/by_skga"
             foo:customButtonFont="fonts/helvneue63medextobl.ttf">
-        </com.laurinka.skga.app.ButtonPlus>
+        </com.laurinka.skga.app.ui.ButtonPlus>
 
-        <com.laurinka.skga.app.ButtonPlus
+      <com.laurinka.skga.app.ui.ButtonPlus
             android:id="@+id/by_cgf_button"
             android:layout_below="@id/by_skga_button"
             style="@style/Buttons.AddBy"
             android:onClick="byCgfNumber"
             android:text="@string/by_cgf"
             foo:customButtonFont="fonts/helvneue63medextobl.ttf">
-        </com.laurinka.skga.app.ButtonPlus>
+        </com.laurinka.skga.app.ui.ButtonPlus>
 
-        <com.laurinka.skga.app.ButtonPlus
+      <com.laurinka.skga.app.ui.ButtonPlus
             android:id="@+id/search_by_name_button"
             style="@style/Buttons.AddBy"
             android:layout_below="@id/by_cgf_button"
             android:onClick="search"
             android:text="@string/search_by_name_skga"
             foo:customButtonFont="fonts/helvneue63medextobl.ttf">
-        </com.laurinka.skga.app.ButtonPlus>
+        </com.laurinka.skga.app.ui.ButtonPlus>
         
-         <com.laurinka.skga.app.ButtonPlus
+       <com.laurinka.skga.app.ui.ButtonPlus
             android:id="@+id/search_by_name_button_cgf"
             style="@style/Buttons.AddBy"
             android:layout_below="@id/search_by_name_button"
             android:onClick="searchCgf"
             android:text="@string/search_by_name_cgf"
             foo:customButtonFont="fonts/helvneue63medextobl.ttf">
-        </com.laurinka.skga.app.ButtonPlus>
+        </com.laurinka.skga.app.ui.ButtonPlus>
         
     </RelativeLayout>
 

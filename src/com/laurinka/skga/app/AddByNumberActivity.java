@@ -25,6 +25,10 @@ public class AddByNumberActivity extends AbstractAddByNumberActivity {
 	
 	public void saveNumber(View view) {
 		final String message = findNumber();
+		Bundle e = new Bundle();
+		e.putString("number", message);
+		getCapptainAgent().sendSessionEvent("add by skga number", e);
+
 
 		new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
 

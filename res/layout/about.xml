@@ -14,14 +14,14 @@
    	    style="@style/logo"
    	    />
     
-    <com.laurinka.skga.app.TextViewPlus
+    <com.laurinka.skga.app.ui.TextViewPlus
         android:id="@+id/title"
         android:text="@string/title_aboutApp"
         style="@style/Title"
         android:singleLine="true"
         android:ellipsize="end"
         foo:customFont="fonts/helvneue63medextobl.ttf">
-    </com.laurinka.skga.app.TextViewPlus>
+    </com.laurinka.skga.app.ui.TextViewPlus>
 
 	<LinearLayout
 	    android:id="@+id/twoColumns"

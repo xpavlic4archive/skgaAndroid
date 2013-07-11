@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.app.ListActivity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +13,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
@@ -25,11 +22,12 @@ import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
 import com.laurinka.skga.app.rest.SkgaService;
 import com.laurinka.skga.app.storage.StorageHelper;
+import com.ubikod.capptain.android.sdk.activity.CapptainListActivity;
 
 /**
  * Holds list view and controller for adding new number and about activity.
  */
-public class MainActivity extends ListActivity {
+public class MainActivity extends CapptainListActivity  {
 
 	private SharedPreferences sharedPreferences;
 	private ArrayList<HashMap<String, String>> data;

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,12 +23,13 @@ import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
 import com.laurinka.skga.app.rest.OnSKGASearchResponse;
 import com.laurinka.skga.app.rest.SkgaService;
 import com.laurinka.skga.app.storage.StorageHelper;
+import com.ubikod.capptain.android.sdk.activity.CapptainListActivity;
 
 /**
  * Holds list view and controller for adding new number and about activity.
  */
 
-public class AddByNameActivity extends ListActivity {
+public class AddByNameActivity extends CapptainListActivity {
 
 	private SharedPreferences sharedPreferences;
 	public SimpleAdapter adapter;
@@ -46,6 +46,11 @@ public class AddByNameActivity extends ListActivity {
 		Bundle extras = getIntent().getExtras();
 		pattern = extras.getString(Constants.PATTERN);
 		type = extras.getString("type");
+		Bundle e = new Bundle();
+		e.putString("patern", pattern);
+		e.putString("type", type);
+		getCapptainAgent().sendSessionEvent("searchByName", e);
+
 		fillData();
 	}
 
@@ -71,6 +76,11 @@ public class AddByNameActivity extends ListActivity {
 		HashMap<String, String> s = (HashMap<String, String>) getListAdapter()
 				.getItem(position);
 		final String message = s.get(Constants.HCP);
+		
+		Bundle e = new Bundle();
+		e.putString("number", message);
+		getCapptainAgent().sendSessionEvent("add by number from search list", e);
+
 		if (type.equals("skga")) {
 			new SkgaService().queryHcp(message, new OnSKGAHcpResponse() {
 				public void onResponse(Hcp response) {
@@ -146,7 +156,8 @@ public class AddByNameActivity extends ListActivity {
 
 	}
 
-	private void search(final ProgressDialog d) throws UnsupportedEncodingException {
+	private void search(final ProgressDialog d)
+			throws UnsupportedEncodingException {
 		List<String> skgaNmbrs = StorageHelper
 				.getSkgaNumbers(sharedPreferences);
 		if ("skga".equals(type)) {

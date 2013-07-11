@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.laurinka.skga.app.storage.StorageHelper;
+import com.ubikod.capptain.android.sdk.activity.CapptainListActivity;
 
 /**
  * Backs edit screen.
@@ -21,7 +21,7 @@ import com.laurinka.skga.app.storage.StorageHelper;
  * @author radimpavlicek
  * 
  */
-public class EditActivity extends ListActivity {
+public class EditActivity extends CapptainListActivity {
 	private List<String> data;
 
 	private ArrayAdapter<String> adapter;

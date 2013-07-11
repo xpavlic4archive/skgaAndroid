@@ -28,6 +28,10 @@ public class AddByCgfNumberActivity extends AbstractAddByNumberActivity {
     public void saveNumber(View view) {
 		final String message = findNumber();
         Log.i(this.getClass().toString(), message);
+    	Bundle e = new Bundle();
+		e.putString("number", message);
+		getCapptainAgent().sendSessionEvent("add by cgf number", e);
+
 
 		new CgfService().queryHcp(message, new OnSKGAHcpResponse() {
 

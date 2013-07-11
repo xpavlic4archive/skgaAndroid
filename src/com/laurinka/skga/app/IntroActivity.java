@@ -1,16 +1,17 @@
 package com.laurinka.skga.app;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.ubikod.capptain.android.sdk.activity.CapptainActivity;
 /**
  * Back intro screen.
  * @author radimpavlicek
  *
  */
 
-public class IntroActivity extends Activity {
+public class IntroActivity extends CapptainActivity {
 
 
 	public void onCreate(Bundle savedInstanceState) {

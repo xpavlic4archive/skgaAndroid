@@ -13,12 +13,12 @@
    	    style="@style/logo"
    	    />
     
-    <com.laurinka.skga.app.TextViewPlus
+    <com.laurinka.skga.app.ui.TextViewPlus
         android:id="@+id/title"
         android:text="@string/by_cgf"
         style="@style/Title"
 		foo:customFont="fonts/helvneue63medextobl.ttf">
-    </com.laurinka.skga.app.TextViewPlus>
+    </com.laurinka.skga.app.ui.TextViewPlus>
     
     <TextView
             android:id="@+id/hint"

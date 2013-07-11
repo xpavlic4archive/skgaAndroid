@@ -1,10 +1,11 @@
 package com.laurinka.skga.app;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.ubikod.capptain.android.sdk.activity.CapptainActivity;
 
 /**
  * Back screen where you add number and this will be saved.
@@ -12,7 +13,7 @@ import android.widget.EditText;
  *
  */
 
-public abstract class AbstractAddByNumberActivity extends Activity {
+public abstract class AbstractAddByNumberActivity extends CapptainActivity {
 	SharedPreferences sharedPreferences;
 
 	@Override

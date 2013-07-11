@@ -1,4 +1,7 @@
-package com.laurinka.skga.app;
+package com.laurinka.skga.app.ui;
+
+import com.laurinka.skga.app.R;
+import com.laurinka.skga.app.R.styleable;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.laurinka.skga.app.util.ResourceHelper;
+import com.ubikod.capptain.android.sdk.activity.CapptainActivity;
 
 /**
  * Show about dialog with contact, wwww and legal info.

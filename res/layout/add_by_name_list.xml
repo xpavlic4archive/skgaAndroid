@@ -10,12 +10,12 @@
         style="@style/logo"
         android:contentDescription="@string/app_name" />
 
-    <com.laurinka.skga.app.TextViewPlus
+    <com.laurinka.skga.app.ui.TextViewPlus
         android:id="@+id/title"
         style="@style/Title"
         android:text="@string/search_by_name"
         foo:customFont="fonts/helvneue63medextobl.ttf" >
-    </com.laurinka.skga.app.TextViewPlus>
+    </com.laurinka.skga.app.ui.TextViewPlus>
 
     <ListView
         android:id="@id/android:list"

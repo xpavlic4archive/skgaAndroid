@@ -1,18 +1,19 @@
 package com.laurinka.skga.app;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.ubikod.capptain.android.sdk.activity.CapptainActivity;
 /**
  * Backs search by name screen.
  * @author radimpavlicek
  *
  */
-public class SearchActivity extends Activity {
+public class SearchActivity extends CapptainActivity {
 
 	private String type;
 

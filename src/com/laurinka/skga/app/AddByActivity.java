@@ -1,9 +1,10 @@
 package com.laurinka.skga.app;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.ubikod.capptain.android.sdk.activity.CapptainActivity;
 
 /**
  * Shows screen with 2 choices, either search by name or search by number.
@@ -11,7 +12,7 @@ import android.view.View;
  *
  */
 
-public class AddByActivity extends Activity {
+public class AddByActivity extends CapptainActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
