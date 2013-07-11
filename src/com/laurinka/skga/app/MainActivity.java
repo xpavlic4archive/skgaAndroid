@@ -146,18 +146,6 @@ public class MainActivity extends ListActivity {
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// Create a progress bar to display while the list loads
-		ProgressBar progressBar = new ProgressBar(this);
-		progressBar.setLayoutParams(new ViewGroup.LayoutParams(
-				ViewGroup.LayoutParams.WRAP_CONTENT,
-				ViewGroup.LayoutParams.WRAP_CONTENT));
-		progressBar.setIndeterminate(true);
-		getListView().setEmptyView(progressBar);
-
-		// Must add the progress bar to the root of the layout
-		ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
-		root.addView(progressBar);
-
 		updateItemOnIndex(position, ShowClub.YES);
 	}
 

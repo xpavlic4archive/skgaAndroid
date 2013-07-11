@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.laurinka.skga.app"
-    android:versionCode="11"
-    android:versionName="2.0.0" >
+    android:versionCode="13"
+    android:versionName="2.0.2" >
          
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <uses-sdk
         android:minSdkVersion="7" android:targetSdkVersion="17"
@@ -13,6 +14,7 @@
     <application android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name">
+        <meta-data android:name="capptain:appId" android:value="com.laurinka.skga.app"/>
         <activity
             android:name="com.laurinka.skga.app.IntroActivity"
            	android:theme="@style/FullScreen"

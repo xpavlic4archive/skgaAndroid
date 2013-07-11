@@ -1,6 +1,5 @@
 package com.laurinka.skga.app;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
@@ -13,7 +12,7 @@ import com.laurinka.skga.app.util.ResourceHelper;
 /**
  * Show about dialog with contact, wwww and legal info.
  */
-public class AboutActivity extends Activity {
+public class AboutActivity extends CapptainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
