@@ -32,4 +32,8 @@
     <string name="searching">Hledám</string>
 	<string name="select_all_button">Vybrat vše</string>
 	<string name="min_2_characters">Vyhledávám jméno od dvou znaků</string>
+	    <string name="search_player_by">Hledej hráče dle:</string>
+    <string name="name">Jména</string>
+    <string name="number">Čísla *</string>
+    <string name="number_explanation">* Číslo je zobrazené na průkazu člena.</string>
 </resources>

@@ -32,4 +32,8 @@
     <string name="searching">Searching</string>
     <string name="select_all_button">Select all</string>
     <string name="min_2_characters">Type at least 2 characters</string>
+    <string name="search_player_by">Search player by:</string>
+    <string name="name">Name</string>
+    <string name="number">Number *</string>
+    <string name="number_explanation">* Number is displayed on the membership card.</string>
 </resources>
