@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.laurinka.skga.app.util.ResourceHelper;
 import com.ubikod.capptain.android.sdk.activity.CapptainActivity;
 /**
  * Backs search by name screen.
@@ -32,7 +33,8 @@ public class SearchActivity extends CapptainActivity {
 	
 	public void startSearch(View view) {
 		String message = findSearchPattern();
-        message = message.replace("\n", "").replace("\r", "");
+        message = message.replace("\n", "").replace("\r", "").replaceAll("[^\\w\\s]","");
+        message = ResourceHelper.stripAccents(message);
 		if (null == message|| message.length() < 2) {
 			AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 			alertDialog.setMessage(getString(R.string.min_2_characters));

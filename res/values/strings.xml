@@ -32,4 +32,5 @@
     <string name="searching">Searching</string>
     <string name="select_all_button">Select all</string>
     <string name="min_2_characters">Type at least 2 characters</string>
+    <string name="min_1_characters">Type at least 1 characters</string>
 </resources>

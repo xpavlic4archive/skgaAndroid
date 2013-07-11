@@ -1,5 +1,7 @@
 package com.laurinka.skga.app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,8 @@ import com.laurinka.skga.app.rest.CgfService;
 import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
 import com.laurinka.skga.app.storage.StorageHelper;
+import com.laurinka.skga.app.util.ResourceHelper;
+import com.ubikod.capptain.utils.ResourcesUtils;
 
 /**
  * Back screen where you add cgf number and this will be saved.
@@ -26,13 +30,30 @@ public class AddByCgfNumberActivity extends AbstractAddByNumberActivity {
     }
 
     public void saveNumber(View view) {
-		final String message = findNumber();
-        Log.i(this.getClass().toString(), message);
+		 String tmessage = findNumber();
+		
+        Log.i(this.getClass().toString(), tmessage);
     	Bundle e = new Bundle();
-		e.putString("number", message);
+		e.putString("number", tmessage);
 		getCapptainAgent().sendSessionEvent("add by cgf number", e);
 
+		if (tmessage != null) {
+			tmessage = ResourceHelper.onlyNumber(tmessage);
+		}
+		if (null == tmessage|| tmessage.length() < 1) {
+			AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+			alertDialog.setMessage(getString(R.string.min_1_characters));
+			alertDialog.setPositiveButton(R.string.back_to_search_button, new DialogInterface.OnClickListener() {
+	               @Override
+	               public void onClick(DialogInterface dialog, int id) {
+	                  dialog.dismiss();
+	               }
+	           });
 
+			alertDialog.show();
+			return;
+		}
+		final String message = tmessage; 
 		new CgfService().queryHcp(message, new OnSKGAHcpResponse() {
 
 			public void onResponse(Hcp response) {
