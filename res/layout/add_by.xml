@@ -18,51 +18,117 @@
         style="@style/Title"
         android:text="@string/title_addRecord"
         foo:customFont="fonts/helvneue63medextobl.ttf">
-  </com.laurinka.skga.app.ui.TextViewPlus>
+  	</com.laurinka.skga.app.ui.TextViewPlus>
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-        android:layout_marginTop="5dp"
-        android:gravity="center_horizontal" >
-
-      <com.laurinka.skga.app.ui.ButtonPlus
-            android:id="@+id/by_skga_button"
-            style="@style/Buttons.AddBy"
-            android:onClick="byNumber"
-            android:text="@string/by_skga"
-            foo:customButtonFont="fonts/helvneue63medextobl.ttf">
-        </com.laurinka.skga.app.ui.ButtonPlus>
-
-      <com.laurinka.skga.app.ui.ButtonPlus
-            android:id="@+id/by_cgf_button"
-            android:layout_below="@id/by_skga_button"
-            style="@style/Buttons.AddBy"
-            android:onClick="byCgfNumber"
-            android:text="@string/by_cgf"
-            foo:customButtonFont="fonts/helvneue63medextobl.ttf">
-        </com.laurinka.skga.app.ui.ButtonPlus>
-
-      <com.laurinka.skga.app.ui.ButtonPlus
-            android:id="@+id/search_by_name_button"
-            style="@style/Buttons.AddBy"
-            android:layout_below="@id/by_cgf_button"
-            android:onClick="search"
-            android:text="@string/search_by_name_skga"
-            foo:customButtonFont="fonts/helvneue63medextobl.ttf">
-        </com.laurinka.skga.app.ui.ButtonPlus>
+        android:id="@+id/rlBySkga"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_textinput" >
         
-       <com.laurinka.skga.app.ui.ButtonPlus
-            android:id="@+id/search_by_name_button_cgf"
-            style="@style/Buttons.AddBy"
-            android:layout_below="@id/search_by_name_button"
-            android:onClick="searchCgf"
-            android:text="@string/search_by_name_cgf"
-            foo:customButtonFont="fonts/helvneue63medextobl.ttf">
-        </com.laurinka.skga.app.ui.ButtonPlus>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#637811"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/fl_svk"
+            android:drawablePadding="5dp"
+            android:id="@+id/tvSearchBySkga"
+            android:text="@string/search_player_by"/>
         
-    </RelativeLayout>
+		<LinearLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:weightSum="2"
+		    android:layout_below="@+id/tvSearchBySkga"
+		    android:layout_marginBottom="16dp"
+		    android:orientation="horizontal">
+		    
+		    <Button 
+		        android:layout_width="0dp"
+		        android:layout_weight="1"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/search_by_name_button"
+		        style="@style/Buttons.ActionBar.AddBy"
+		        android:onClick="search"
+		        android:text="@string/name"/>
+		    
+		    <Button 
+		        android:layout_width="0dp"
+		        android:layout_weight="1"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/by_skga_button"
+		        style="@style/Buttons.ActionBar.AddBy"
+		        android:onClick="byNumber"
+		        android:text="@string/number"/>
+
+		</LinearLayout>
+
+	</RelativeLayout>
+	
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlBySkga"
+        android:id="@+id/rlByCgf"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_textinput" >
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#637811"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/fl_cze"
+            android:drawablePadding="5dp"
+            android:id="@+id/tvSearchByCgf"
+            android:text="@string/search_player_by"/>
+		
+		<LinearLayout
+		    android:layout_width="fill_parent"
+		    android:layout_below="@+id/tvSearchByCgf"
+		    android:id="@+id/llSearchByCgf"
+		    android:layout_height="wrap_content"
+		    android:weightSum="2"
+		    android:orientation="horizontal">
+		    
+		    <Button 
+		        android:layout_width="0dp"
+		        android:layout_weight="1"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/search_by_name_button_cgf"
+		        style="@style/Buttons.ActionBar.AddBy"
+		        android:onClick="searchCgf"
+		        android:text="@string/name"/>
+		    
+		    <Button 
+		        android:layout_width="0dp"
+		        android:layout_weight="1"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/by_cgf_button"
+		        style="@style/Buttons.ActionBar.AddBy"
+		        android:onClick="byCgfNumber"
+		        android:text="@string/number"/>
+
+		</LinearLayout>
+		
+	</RelativeLayout>
+	
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlByCgf"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="0dp"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:textColor="#637811"
+        android:text="@string/number_explanation"/>
 
     <LinearLayout
         android:id="@+id/action_bar"
