@@ -12,7 +12,6 @@ import com.laurinka.skga.app.rest.Hcp;
 import com.laurinka.skga.app.rest.OnSKGAHcpResponse;
 import com.laurinka.skga.app.storage.StorageHelper;
 import com.laurinka.skga.app.util.ResourceHelper;
-import com.ubikod.capptain.utils.ResourcesUtils;
 
 /**
  * Back screen where you add cgf number and this will be saved.

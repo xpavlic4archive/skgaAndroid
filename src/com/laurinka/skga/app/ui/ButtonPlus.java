@@ -1,14 +1,13 @@
 package com.laurinka.skga.app.ui;
 
-import com.laurinka.skga.app.R;
-import com.laurinka.skga.app.R.styleable;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.Button;
+
+import com.laurinka.skga.app.R;
 
 public class ButtonPlus extends Button {
     private static final String TAG = "Button";

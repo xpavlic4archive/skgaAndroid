@@ -1,12 +1,13 @@
 package com.laurinka.skga.app.storage;
 
-import android.content.SharedPreferences;
-import com.laurinka.skga.app.Constants;
-
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+
+import android.content.SharedPreferences;
+
+import com.laurinka.skga.app.Constants;
 
 /**
  * Crud operation on storage with golf numbers and handicap values.
