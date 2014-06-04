@@ -57,9 +57,6 @@ public class MainActivity extends CapptainListActivity  {
 		startActivity(new Intent(this, AddByActivity.class));
 	}
 
-	public void about(View view) {
-		startActivity(new Intent(this, AboutActivity.class));
-	}
 
 	public void edit(View view) {
 		startActivity(new Intent(this, EditActivity.class));
