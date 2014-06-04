@@ -18,7 +18,7 @@
     <string name="search_by_name">Podle jména hráče</string>
     <string name="search_by_name_cgf">Podle jména CGF hráče</string>
     <string name="search_by_name_skga">Podle jména SKGA hráče</string>
-    <string name="search_hint_text">Zadejte začátek jména hráče. Např. Marek</string>
+    <string name="search_hint_text">Zadejte začátek jména hráče nebo příjmení. Např. Radim nebo Pavlicek. Nepoužívejte diakritiku neboť to může vést k problémům. Pokud hledáte např. Sion, ve výsledcích uvidíte jak Sionko tak Sionkova.</string>
     <string name="button_search">Hledat</string>
     <string name="edit_search">Jméno hráče</string>
     <string name="records_button">Záznamy</string>

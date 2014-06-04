@@ -18,7 +18,7 @@
     <string name="search_by_name">By name of player</string>
     <string name="search_by_name_cgf">By name of CGF player</string>
       <string name="search_by_name_skga">By name of SKGA player</string>
-    <string name="search_hint_text">Enter beginning of player\'s name. E.g. Marek</string>
+    <string name="search_hint_text">Enter beginning of player\'s name or surname. E.g. Radim or Pavlicek. Do not use accents as it might cause problems. If you search \"Sion\", you will get both Sionko and Sionkova.</string>
     <string name="button_search">Search</string>
     <string name="edit_search">Player\'s name</string>
     <string name="records_button">Records</string>
