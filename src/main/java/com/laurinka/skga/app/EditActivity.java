@@ -85,7 +85,7 @@ public class EditActivity extends CapptainListActivity {
 
 	/**
 	 * Select all.
-	 * @param view
+	 * @param view view
 	 */
 	public void invert(View view) {
 		ListView lv = getListView();
