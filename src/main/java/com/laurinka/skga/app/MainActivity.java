@@ -41,7 +41,7 @@ public class MainActivity extends CapptainListActivity  {
 
 		sharedPreferences = getSharedPreferences(Constants.DATA_PREFERENCES,
 				MODE_PRIVATE);
-		List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
+//		List<String> numbers = StorageHelper.getNumbers(sharedPreferences);
 		//do not start addByActivity, as it is misleading
 //		if (numbers.isEmpty()) {
 //			Intent intent = new Intent(this, AddByActivity.class);
