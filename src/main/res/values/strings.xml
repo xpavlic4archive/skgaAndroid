@@ -7,8 +7,6 @@
     <string name="hint_text">Add SKGA number. Eg. 9811</string>
     <string name="hint_text_cfg">Add CGF number. Eg. 950806</string>
     <string name="add_button">Add</string>
-    <string name="about_button">About</string>
-    <string name="logo">Laurinka.com</string>
     <string name="edit_button">Edit</string>
     <string name="close_button">Back</string>
     <string name="delete_button">Delete selec.</string>
@@ -26,7 +24,6 @@
     <string name="title_myRecords">My records</string>
     <string name="title_editMyRecords">Edit my records</string>
     <string name="title_addRecord">Add a record</string>
-    <string name="title_aboutApp">About CS handicap</string>
     <string name="backRecords_button">Back to my records</string>
     <string name="back_to_search_button">Back to Search</string>
     <string name="searching">Searching</string>

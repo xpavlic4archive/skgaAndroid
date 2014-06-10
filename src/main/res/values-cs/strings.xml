@@ -7,11 +7,9 @@
     <string name="hint_text">Přidat SKGA číslo. Např. 9811</string>
     <string name="hint_text_cfg">Přidat CGF číslo. Např. 950806</string>
     <string name="add_button">Přidat</string>
-    <string name="about_button">O nás</string>
     <string name="edit_button">Změnit</string>
     <string name="close_button">Zpět</string>
     <string name="delete_button">Smazat ozn.</string>
-    <string name="logo">Laurinka.com</string>
     <string name="by_skga">Podle SKGA čísla hráče</string>
     <string name="by_cgf">Podle CGF čísla hráče</string>
     <string name="no_names">Žádná jména.</string>
@@ -26,7 +24,6 @@
     <string name="title_myRecords">Moje záznamy</string>
     <string name="title_editMyRecords">Upravit záznamy</string>
     <string name="title_addRecord">Přidat záznam</string>
-    <string name="title_aboutApp">O ČS handicap</string>
     <string name="backRecords_button">Zpět na moje záznamy</string>
     <string name="back_to_search_button">Zpět na vyhledávání</string>
     <string name="searching">Hledám</string>
