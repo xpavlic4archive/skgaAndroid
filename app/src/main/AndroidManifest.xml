@@ -37,7 +37,7 @@
             <meta-data android:name="capptain:log:test" android:value="true" />
         </service>
         <activity
-            android:name="com.laurinka.skga.app.LaurinkaActivity"
+            android:name=".LaurinkaActivity"
             android:screenOrientation="landscape"
             android:theme="@style/FullScreen" >
             <intent-filter>
