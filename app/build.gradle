@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion '21.1.2'
+  compileSdkVersion 19
+    buildToolsVersion "20.0.0"
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 21
+        targetSdkVersion 19
         versionCode 16
         versionName "3.2"
     }
@@ -22,6 +22,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:21.0.0'
+    compile 'com.android.support:support-v4:20.0.0'
     compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 }
