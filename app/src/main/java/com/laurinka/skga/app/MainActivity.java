@@ -156,7 +156,7 @@ public class MainActivity extends CapptainListActivity  {
 	}
 
 	enum ShowClub {
-		YES, NO;
+		YES, NO
 	}
 
 	private void updateItemOnIndex(int position, final ShowClub show) {

@@ -4,10 +4,10 @@ package com.laurinka.skga.app;
  * Various constants used in app.
  */
 public interface Constants {
-	 final static String SKGA_PREFIX = "com.laurinka.skga.app.";
-	 final static String CGF_PREFIX = "com.laurinka.cgf.app.";
-    public final static String SKGA_NUMBERS = SKGA_PREFIX + "SKGA_NUMBERS";
-    public final static String CGF_NUMBERS = CGF_PREFIX + "SKGA_NUMBERS";
+	 String SKGA_PREFIX = "com.laurinka.skga.app.";
+	 String CGF_PREFIX = "com.laurinka.cgf.app.";
+    String SKGA_NUMBERS = SKGA_PREFIX + "SKGA_NUMBERS";
+    String CGF_NUMBERS = CGF_PREFIX + "SKGA_NUMBERS";
     String DATA_PREFERENCES = SKGA_PREFIX + "data";
     String NR = "skgaNr";
     String HCP = "hcp";
@@ -22,6 +22,6 @@ public interface Constants {
     
     String NAME = "name";
     
-	public  static final String COM_LAURINKA_SKGA_APP_REFRESH = "com.laurinka.skga.app.REFRESH";
+	String COM_LAURINKA_SKGA_APP_REFRESH = "com.laurinka.skga.app.REFRESH";
 	String PATTERN = "pattern";
 }

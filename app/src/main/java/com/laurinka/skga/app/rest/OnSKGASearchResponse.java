@@ -6,6 +6,6 @@ import java.util.List;
  * Callback interface for SKGA webservice call.
  */
 public interface OnSKGASearchResponse {
-	public abstract void onResponse(List<NameNumber> nameNumbers);
-	public abstract void onError(Integer errorCode, String errorMessage);
+	void onResponse(List<NameNumber> nameNumbers);
+	void onError(Integer errorCode, String errorMessage);
 }
