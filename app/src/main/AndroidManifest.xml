@@ -46,15 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.laurinka.skga.app.IntroActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/FullScreen" >
-            <intent-filter>
-                <action android:name="com.laurinka.skga.app.MAIN"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
+
         <activity
             android:name=".AddByNumberActivity"
             android:label="@string/app_name"
