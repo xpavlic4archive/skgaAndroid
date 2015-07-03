@@ -66,7 +66,7 @@ public class AddByCgfNumberActivity extends AbstractAddByNumberActivity {
 								response.getClub()) //
 						.putString(Constants.CGF_NAME_PREFIX + message,
 								response.getName()) //
-						.commit();
+						.apply();
 				StorageHelper.addCgfNumber(sharedPreferences, message);
 				sendBroadcast(new Intent(Constants.COM_LAURINKA_SKGA_APP_REFRESH));
 			}
