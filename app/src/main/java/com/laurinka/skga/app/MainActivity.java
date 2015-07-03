@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
@@ -79,7 +80,7 @@ public class MainActivity extends CapptainListActivity  {
 		{
 			List<String> numbers = StorageHelper
 					.getSkgaNumbers(sharedPreferences);
-			String[] numbersA = numbers.toArray(new String[0]);
+			String[] numbersA = numbers.toArray(new String[numbers.size()]);
 			for (int i = 0; i < numbers.size(); i++) {
 				HashMap<String, String> map = new HashMap<String, String>();
 				String value = numbersA[i];
@@ -96,7 +97,7 @@ public class MainActivity extends CapptainListActivity  {
 		{
 			List<String> numbers = StorageHelper
 					.getCgfNumbers(sharedPreferences);
-			String[] numbersA = numbers.toArray(new String[0]);
+			String[] numbersA = numbers.toArray(new String[numbers.size()]);
 			for (int i = 0; i < numbers.size(); i++) {
 				HashMap<String, String> map = new HashMap<String, String>();
 				String value = numbersA[i];
@@ -145,14 +146,19 @@ public class MainActivity extends CapptainListActivity  {
 	}
 
 	public void updateAll() {
+		ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
 		try {
 			int count = getListAdapter().getCount();
-			for (int i = 0; i < count; i++) {
+			progressBar.setMax(count);
+				for (int i = 0; i < count; i++) {
 				updateItemOnIndex(i, ShowClub.NO);
+				progressBar.setProgress(i);
 			}
 		} catch (IndexOutOfBoundsException ignored) {
 			Log.w(this.getClass().getSimpleName(), ignored);
 		}
+		progressBar.setVisibility(View.GONE);
 	}
 
 	enum ShowClub {
@@ -179,7 +185,7 @@ public class MainActivity extends CapptainListActivity  {
 									response.getClub()) //
 							.putString(Constants.SKGA_NAME_PREFIX + message,
 									response.getName()) //
-							.commit();
+							.apply();
 					if (show.equals(ShowClub.YES))
 						callBack(message, response);
 				}
@@ -205,7 +211,7 @@ public class MainActivity extends CapptainListActivity  {
 									response.getClub()) //
 							.putString(Constants.CGF_NAME_PREFIX + message,
 									response.getName()) //
-							.commit();
+							.apply();
 					if (show.equals(ShowClub.YES))
 						callBack(message, response);
 				}
