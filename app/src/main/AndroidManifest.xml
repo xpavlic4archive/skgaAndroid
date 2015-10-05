@@ -19,7 +19,8 @@
         <service
             android:name="com.ubikod.capptain.android.service.CapptainService"
             android:label="CSHandicapService"
-            android:process=":Capptain" >
+            android:process=":Capptain"
+            android:exported="false">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
 
@@ -30,7 +31,7 @@
 
             <meta-data
                 android:name="capptain:api:level"
-                android:value="19" />
+                android:value="24" />
             <meta-data
                 android:name="capptain:api:id"
                 android:value="b6a5b1113175bf391e442a8653876b84" />
