@@ -15,7 +15,9 @@
         <meta-data
             android:name="capptain:appId"
             android:value="csh000000" />
-
+        <meta-data
+                android:name="io.fabric.ApiKey"
+                android:value="0439aff786356d8ef09938ad91da9e1a242ae623" />
         <service
             android:name="com.ubikod.capptain.android.service.CapptainService"
             android:label="CSHandicapService"
