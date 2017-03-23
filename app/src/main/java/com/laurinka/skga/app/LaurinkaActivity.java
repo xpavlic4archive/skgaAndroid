@@ -28,7 +28,7 @@ public class LaurinkaActivity extends CapptainActivity {
                         sleep(100);
                         time = time + 100;
                     }
-                    Intent i = new Intent("com.laurinka.skga.app.MAIN");
+                    Intent i = new Intent(LaurinkaActivity.this, MainActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
 
